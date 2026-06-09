@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erich Paul Schneider — Una Vida a Través de los Continentes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper: #f5edd6;
+      --paper-dark: #e8d9b5;
+      --ink: #2b1e0f;
+      --ink-light: #4a3020;   /* darkened: was #5a3e28 (8.3:1 → now ~10:1 on paper) */
+      --sepia: #8b6347;        /* decorative only — NOT used for readable text */
+      --rust: #7a3b1e;         /* 7.3:1 on paper — chapter labels on light bg */
+      --gold: #b8860b;         /* decorative lines/accents only */
+      --on-dark: #dcc99a;      /* 9.2:1 on --ink — readable text on dark sections */
+      --on-dark-dim: #c8a96e;  /* 7.2:1 on --ink — secondary text on dark sections */
+      --line: rgba(90, 62, 40, 0.25);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #2b1e0f;
+      font-family: 'EB Garamond', Georgia, serif;
+      color: var(--ink);
+      font-size: 19px;
+      line-height: 1.8;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.6;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--paper);
+      box-shadow: 0 0 80px rgba(0,0,0,0.7);
+      position: relative;
+    }
+
+    /* ── Language switcher ── */
+    .lang-bar {
+      background: #1a120a;
+      display: flex;
+      justify-content: flex-end;
+      padding: 8px 20px;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid rgba(184,134,11,0.35);
+      color: #a8926a;
+      font-family: 'EB Garamond', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      padding: 4px 12px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      text-transform: uppercase;
+    }
+
+    .lang-btn:hover { background: var(--rust); color: #fff; border-color: var(--rust); }
+    .lang-btn.active { background: var(--gold); color: var(--ink); border-color: var(--gold); font-weight: 600; }
+
+    /* ── Header ── */
+    header {
+      background: var(--ink);
+      color: var(--paper);
+      text-align: center;
+      padding: 70px 40px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before, header::after {
+      content: '';
+      display: block;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 40px;
+    }
+    header::before { margin-bottom: 24px; }
+    header::after  { margin-top: 24px; }
+
+    .portrait-wrap {
+      margin: 0 auto 28px;
+      width: 176px;   /* matches 874px natural ratio */
+      border: 5px solid #c8a96e;
+      box-shadow: 0 0 0 1px #5a3e28, 6px 6px 24px rgba(0,0,0,0.65);
+      background: #1a120a;
+    }
+
+    .portrait-wrap img {
+      width: 100%;
+      height: auto;   /* full image, no cropping */
+      display: block;
+    }
+
+
+    .header-eyebrow {
+      font-family: 'EB Garamond', serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--on-dark-dim);  /* 7.2:1 on dark — was --gold (5:1) */
+      margin-bottom: 18px;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      color: var(--paper);
+    }
+
+    header h1 em {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--on-dark);   /* 9.2:1 on dark */
+    }
+
+    .header-dates {
+      margin-top: 16px;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      color: var(--on-dark-dim);  /* 7.2:1 — was #a8926a (5.4:1) */
+    }
+
+    .header-subtitle {
+      margin-top: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--on-dark);   /* 9.2:1 — was #c8a96e (7.2:1) */
+    }
+
+    /* ── Nav ── */
+    nav {
+      background: var(--ink-light);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--paper-dark);
+      text-decoration: none;
+      font-size: 0.82rem;      /* slightly larger for legibility */
+      letter-spacing: 0.18em;  /* reduced from 0.25em */
+      text-transform: uppercase;
+      padding: 14px 20px;
+      transition: background 0.2s, color 0.2s;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    nav a:last-child { border-right: none; }
+    nav a:hover { background: var(--rust); color: #fff; }
+
+    /* ── Sections ── */
+    section {
+      padding: 64px 60px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:last-child { border-bottom: none; }
+
+    @media (max-width: 600px) {
+      section { padding: 48px 24px; }
+    }
+
+    .section-label {
+      font-size: 0.78rem;      /* larger — small text needs extra contrast headroom */
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--rust);      /* 7.3:1 on paper — was --sepia (4.5:1) */
+      margin-bottom: 6px;
+    }
+
+    /* Section labels inside dark sections need a light color */
+    section[style*="background: var(--ink)"] .section-label,
+    .section-label.on-dark {
+      color: var(--on-dark-dim);  /* 7.2:1 on dark */
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 16px 0 28px;
+    }
+
+    p { margin-bottom: 1.3em; color: var(--ink-light); }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--ink); font-weight: 600; }
+
+    /* ── Hero quote ── */
+    .hero-quote {
+      background: var(--ink);
+      padding: 48px 60px;
+      text-align: center;
+    }
+
+    .hero-quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(1.35rem, 2.8vw, 1.75rem);
+      color: var(--on-dark);   /* 9.2:1 — was #d4b483 (8.2:1, already ok but improved) */
+      line-height: 1.55;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .hero-quote cite {
+      display: block;
+      margin-top: 18px;
+      font-family: 'EB Garamond', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--on-dark-dim);  /* 7.2:1 — was --sepia (3.1:1 on dark = FAIL) */
+    }
+
+    /* ── Timeline ── */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), var(--sepia));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 36px;
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -37px;
+      top: 7px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--paper);
+      box-shadow: 0 0 0 2px var(--gold);
+    }
+
+    .timeline-year {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--rust);
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+
+    .timeline-text { color: var(--ink-light); margin-bottom: 0; }
+
+    /* ── Gallery ── */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 32px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      background: var(--ink);
+      border: 4px solid var(--paper-dark);
+      box-shadow: 3px 3px 14px rgba(0,0,0,0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px) rotate(0.4deg);
+      box-shadow: 6px 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      filter: sepia(40%) contrast(1.05) brightness(0.96);
+      transition: filter 0.3s;
+    }
+
+    .gallery-item:hover img {
+      filter: sepia(20%) contrast(1.05) brightness(1);
+    }
+
+    /* ── Journey map ── */
+    .journey-map {
+      background: var(--paper-dark);
+      border: 1px solid var(--line);
+      padding: 32px;
+      margin-top: 28px;
+      text-align: center;
+    }
+
+    .journey-path {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+    }
+
+    .journey-city { font-weight: 700; color: var(--ink); font-style: italic; }
+
+    .journey-arrow { color: var(--gold); font-size: 1.4rem; line-height: 1; }
+
+    .journey-year {
+      font-size: 0.75rem;
+      color: var(--rust);      /* 7.3:1 on paper — was --sepia (4.5:1) */
+      letter-spacing: 0.12em;
+      display: block;
+      text-align: center;
+      font-style: normal;
+      font-family: 'EB Garamond', serif;
+      margin-top: 2px;
+    }
+
+    /* ── Pull quote ── */
+    .pull-quote {
+      border-left: 4px solid var(--gold);
+      margin: 32px 0;
+      padding: 16px 28px;
+      background: rgba(184, 134, 11, 0.06);
+    }
+
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.3rem;
+      color: var(--ink);       /* --ink on paper = max contrast */
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* ── Ornament ── */
+    .ornament {
+      text-align: center;
+      color: var(--gold);
+      font-size: 1.4rem;
+      margin: 8px 0 32px;
+      letter-spacing: 0.6em;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--ink);
+      color: #a8926a;
+      text-align: center;
+      padding: 40px;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+    }
+
+    footer .gold { color: var(--gold); }
+
+    /* ── Lightbox ── */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    #lightbox.open { display: flex; }
+
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      filter: sepia(20%);
+      box-shadow: 0 0 60px rgba(0,0,0,0.8);
+    }
+
+    #lightbox-close {
+      position: fixed;
+      top: 20px;
+      right: 28px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+      opacity: 0.7;
+    }
+
+    #lightbox-close:hover { opacity: 1; }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Language bar -->
+  <div class="lang-bar">
+    <button class="lang-btn active" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" onclick="setLang('pl')">PL</button>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <p class="header-eyebrow" data-i18n="eyebrow"></p>
+    <div class="portrait-wrap">
+      <img src="images/Eric%20Paul%20Schneider.png" alt="Erich Paul Schneider">
+    </div>
+    <h1><em>Erich Paul</em> Schneider</h1>
+    <p class="header-dates" data-i18n="header_dates"></p>
+    <p class="header-subtitle" data-i18n="subtitle"></p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#origins"  data-i18n="nav_origins"></a>
+    <a href="#journey"  data-i18n="nav_journey"></a>
+    <a href="#argentina" data-i18n="nav_argentina"></a>
+    <a href="#family"   data-i18n="nav_family"></a>
+    <a href="#reunion"  data-i18n="nav_reunion"></a>
+    <a href="#return"   data-i18n="nav_return"></a>
+    <a href="#photos"   data-i18n="nav_photos"></a>
+  </nav>
+
+  <!-- Opening quote -->
+  <div class="hero-quote">
+    <blockquote data-i18n="quote_text"></blockquote>
+    <cite data-i18n="quote_cite"></cite>
+  </div>
+
+  <!-- Ch I: Origins -->
+  <section id="origins">
+    <p class="section-label" data-i18n="ch1_label"></p>
+    <h2 data-i18n="ch1_title"></h2>
+    <div class="divider"></div>
+    <p data-i18n="ch1_p1"></p>
+    <p data-i18n="ch1_p2"></p>
+    <div class="pull-quote"><p data-i18n="ch1_pull"></p></div>
+    <p data-i18n="ch1_p3"></p>
+  </section>
+
+  <!-- Ch II: Journey -->
+  <section id="journey" style="background: var(--paper-dark);">
+    <p class="section-label" data-i18n="ch2_label"></p>
+    <h2 data-i18n="ch2_title"></h2>
+    <div class="divider"></div>
+    <p data-i18n="ch2_p1"></p>
+    <p data-i18n="ch2_p2"></p>
+
+    <div class="journey-map">
+      <div class="journey-path">
+        <div>
+          <span class="journey-city">Breslau</span>
+          <span class="journey-year" data-i18n="map_born"></span>
+        </div>
+        <span class="journey-arrow">→</span>
+        <div>
+          <span class="journey-city">Bremen</span>
+          <span class="journey-year" data-i18n="map_depart"></span>
+        </div>
+        <span class="journey-arrow">→</span>
+        <div>
+          <span class="journey-city" data-i18n="map_ocean"></span>
+          <span class="journey-year" data-i18n="map_weeks"></span>
+        </div>
+        <span class="journey-arrow">→</span>
+        <div>
+          <span class="journey-city">Buenos Aires</span>
+          <span class="journey-year" data-i18n="map_arrive"></span>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top:28px" data-i18n="ch2_p3"></p>
+  </section>
+
+  <!-- Ch III: Argentina -->
+  <section id="argentina">
+    <p class="section-label" data-i18n="ch3_label"></p>
+    <h2 data-i18n="ch3_title"></h2>
+    <div class="divider"></div>
+    <p data-i18n="ch3_p1"></p>
+    <p data-i18n="ch3_p2"></p>
+    <p data-i18n="ch3_p3"></p>
+  </section>
+
+  <!-- Ch IV: Family -->
+  <section id="family" style="background: var(--paper-dark);">
+    <p class="section-label" data-i18n="ch4_label"></p>
+    <h2 data-i18n="ch4_title"></h2>
+    <div class="divider"></div>
+    <p data-i18n="ch4_p1"></p>
+    <p data-i18n="ch4_p2"></p>
+    <div class="pull-quote"><p data-i18n="ch4_pull"></p></div>
+    <p data-i18n="ch4_p3"></p>
+    <p data-i18n="ch4_p4"></p>
+  </section>
+
+  <!-- Ch V: Reunion -->
+  <section id="reunion">
+    <p class="section-label" data-i18n="ch5_label"></p>
+    <h2 data-i18n="ch5_title"></h2>
+    <div class="divider"></div>
+    <p data-i18n="ch5_p1"></p>
+    <p data-i18n="ch5_p2"></p>
+    <div class="ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">1905</div>
+        <p class="timeline-text" data-i18n="tl_1905"></p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1914–1918</div>
+        <p class="timeline-text" data-i18n="tl_1914"></p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1926</div>
+        <p class="timeline-text" data-i18n="tl_1926"></p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1939–1945</div>
+        <p class="timeline-text" data-i18n="tl_1939"></p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1945–1948</div>
+        <p class="timeline-text" data-i18n="tl_1945"></p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1949</div>
+        <p class="timeline-text" data-i18n="tl_1949"></p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1975</div>
+        <p class="timeline-text" data-i18n="tl_1975"></p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2026</div>
+        <p class="timeline-text" data-i18n="tl_2026"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ch VI: 100 años después -->
+  <section id="return">
+    <p class="section-label" data-i18n="ch6_label"></p>
+    <h2 data-i18n="ch6_title"></h2>
+    <div class="divider"></div>
+    <p data-i18n="ch6_p1"></p>
+    <p data-i18n="ch6_p2"></p>
+
+    <div class="pull-quote">
+      <p data-i18n="ch6_pull"></p>
+    </div>
+
+    <p data-i18n="ch6_p3"></p>
+    <p data-i18n="ch6_p4"></p>
+
+    <!-- Journey 2026 -->
+    <div class="journey-map">
+      <div class="journey-path">
+        <div><span class="journey-city" data-i18n="ch6_city_start"></span><span class="journey-year" data-i18n="ch6_map_start"></span></div>
+        <span class="journey-arrow">→</span>
+        <div><span class="journey-city">Wrocław</span><span class="journey-year" data-i18n="ch6_map_wroclaw"></span></div>
+        <span class="journey-arrow">→</span>
+        <div><span class="journey-city">Berlín</span><span class="journey-year" data-i18n="ch6_map_berlin"></span></div>
+        <span class="journey-arrow">→</span>
+        <div><span class="journey-city">Wiesbaden</span><span class="journey-year" data-i18n="ch6_map_wiesbaden"></span></div>
+      </div>
+    </div>
+
+    <p style="margin-top:28px;" data-i18n="ch6_p5"></p>
+  </section>
+
+  <!-- Photos -->
+  <section id="photos" style="background: var(--ink); padding-bottom: 72px;">
+    <p class="section-label" style="color: var(--on-dark-dim);" data-i18n="photos_label"></p>
+    <h2 style="color: var(--paper);" data-i18n="photos_title"></h2>
+    <div class="divider"></div>
+    <p style="color: var(--on-dark);" data-i18n="photos_desc"></p>
+
+    <div class="gallery">
+      <div class="gallery-item" onclick="openLightbox('images/photo-000.jpg')"><img src="images/photo-000.jpg" alt="" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox('images/photo-001.jpg')"><img src="images/photo-001.jpg" alt="" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox('images/photo-002.jpg')"><img src="images/photo-002.jpg" alt="" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox('images/photo-003.jpg')"><img src="images/photo-003.jpg" alt="" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox('images/photo-004.jpg')"><img src="images/photo-004.jpg" alt="" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox('images/photo-005.jpg')"><img src="images/photo-005.jpg" alt="" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox('images/photo-006.jpg')"><img src="images/photo-006.jpg" alt="" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox('images/photo-007.jpg')"><img src="images/photo-007.jpg" alt="" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox('images/photo-008.jpg')"><img src="images/photo-008.jpg" alt="" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox('images/photo-009.jpg')"><img src="images/photo-009.jpg" alt="" loading="lazy"></div>
+      <div class="gallery-item" onclick="openLightbox('images/photo-010.jpg')"><img src="images/photo-010.jpg" alt="" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p><span class="gold">Erich Paul Schneider</span> &nbsp;·&nbsp; Breslau, 1905 &nbsp;·&nbsp; Buenos Aires</p>
+    <p style="margin-top:10px;opacity:0.6;font-size:0.8rem;" data-i18n="footer_credit"></p>
+  </footer>
+
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLightbox()">
+  <span id="lightbox-close" onclick="closeLightbox()">✕</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<script>
+const translations = {
+
+  es: {
+    eyebrow:      "Una Vida a Través de los Continentes",
+    subtitle:     "De Breslau a Argentina — una historia de migración, resiliencia y nuevos comienzos",
+    header_dates: "15 de septiembre de 1905 &nbsp;·&nbsp; Dean Funes, Córdoba, 1975",
+    nav_origins:  "Orígenes",
+    nav_journey:  "El Viaje",
+    nav_argentina:"Argentina",
+    nav_family:   "Familia en Alemania",
+    nav_reunion:  "El Reencuentro",
+    nav_photos:   "Fotografías",
+    quote_text:   "Las raíces de un hombre son más profundas que cualquier frontera. Lleva su patria en su lengua, su fe y en los rostros de quienes ama.",
+    quote_cite:   "— En memoria de Erich Paul Schneider",
+    ch1_label:    "Capítulo I",
+    ch1_title:    "Orígenes en Breslau",
+    ch1_p1:       "<strong>Erich Paul Schneider</strong> y su hermano mellizo <strong>Willÿ Walter Schneider</strong> nacieron el <strong>15 de septiembre de 1905</strong> en la ciudad de <strong>Breslau</strong>, entonces orgullosa y próspera capital de la provincia prusiana de Silesia. Hoy la ciudad se llama Wrocław y se encuentra dentro de las fronteras de Polonia, pero en tiempos del nacimiento de los hermanos era una floreciente ciudad alemana, sede de grandes universidades, elegantes bulevares y una estrecha comunidad de familias germanas.",
+    ch1_p2:       "Creció en un mundo que estaba a punto de derrumbarse. Cuando estalló la <strong>Primera Guerra Mundial</strong> en 1914, Erich tenía nueve años. Maduró viendo colapsar el viejo orden europeo: el imperio del Káiser desmoronándose, soldados regresando destrozados de las trincheras y la desesperación económica de una nación despojada de su dignidad por el Tratado de Versalles.",
+    ch1_pull:     "Vio derrumbarse el viejo mundo y eligió encontrar su futuro en algún lugar nuevo.",
+    ch1_p3:       "Sin embargo, en medio de las dificultades, Breslau conservó su carácter: sus torres, sus ríos, su gente. Era la ciudad que forjó a Erich, su lengua, sus valores y los lazos que nunca lo abandonarían del todo, sin importar cuán lejos viajara.",
+    ch2_label:    "Capítulo II",
+    ch2_title:    "El Viaje a la Argentina",
+    ch2_p1:       "En <strong>1926</strong>, a los veintiún años, Erich tomó la decisión que definiría su vida. Ante la inestabilidad política y la ruina económica de la Alemania de Weimar, partió desde el puerto de <strong>Bremen</strong> y cruzó el Océano Atlántico rumbo a la <strong>Argentina</strong>.",
+    ch2_p2:       "No estaba solo en esa decisión. Los años veinte vieron llegar a las costas argentinas a decenas de miles de inmigrantes europeos, atraídos por la promesa de tierra, trabajo y un futuro estable. Argentina era entonces uno de los países más ricos del mundo, y Buenos Aires —el «París de América del Sur»— recibía a los recién llegados con los brazos abiertos.",
+    map_born:     "1905 — nacimiento",
+    map_depart:   "partida desde Bremen, 1926",
+    map_ocean:    "Océano Atlántico",
+    map_weeks:    "semanas en alta mar",
+    map_arrive:   "llegada, 1926",
+    ch2_p3:       "La travesía fue larga: semanas a bordo de un vapor que llevaba emigrantes, su equipaje y sus esperanzas. Erich llegó a Buenos Aires con poco más que la ropa en el cuerpo y el alemán en la boca. Pero llegó con algo poderoso: la voluntad de construir una vida desde cero.",
+    ch3_label:    "Capítulo III",
+    ch3_title:    "Una Nueva Vida en Argentina",
+    ch3_p1:       "Erich echó raíces en Argentina y convirtió el país en su hogar. Se casó y, junto a su esposa, construyó una familia y una vida completamente argentina, aunque siempre marcada por el recuerdo de Breslau, de los ríos y tejados que había dejado atrás.",
+    ch3_p2:       "La comunidad de inmigrantes alemanes en Argentina era vibrante y unida. La lengua, la comida, la música y las tradiciones mantenían a las familias unidas a través del océano. Erich vivía entre dos mundos: el nuevo que estaba construyendo con sus propias manos y el antiguo que llevaba en el corazón.",
+    ch3_p3:       "Mientras tanto, en Alemania, el mundo volvía a oscurecerse. Mientras Erich se establecía en la vida argentina en los años veinte y treinta, su familia en Breslau observaba el ascenso de un nuevo y terrible orden.",
+    ch4_label:    "Capítulo IV",
+    ch4_title:    "La Familia que Quedó Atrás",
+    ch4_p1:       "Mientras Erich construía su nueva vida en Buenos Aires, la familia que había dejado en Breslau vivió uno de los capítulos más oscuros de la historia europea. La <strong>Segunda Guerra Mundial</strong> —de 1939 a 1945— trajo devastación a Alemania y a Silesia en particular.",
+    ch4_p2:       "A medida que la guerra llegaba a su fin, los habitantes alemanes de Breslau comenzaron a huir hacia el oeste entre 1944 y 1945, o fueron evacuados en años posteriores. <strong>En agosto de 1945</strong>, Breslau pasó a formar parte de Polonia oficialmente, y la ciudad fue rebautizada Wrocław. A partir de entonces, la población pasó a ser casi exclusivamente polaca. Los alemanes que durante generaciones habían llamado hogar a esa ciudad quedaron dispersados por la Alemania occidental, separados para siempre de sus calles, sus iglesias y sus recuerdos.",
+    ch4_pull:     "Fueron forzados a dejar atrás todo lo que habían conocido: su hogar, su ciudad, su pasado.",
+    ch4_p3:       "La familia de Erich estuvo entre ellos. Empacaron lo que pudieron cargar y se abrieron camino hacia el oeste. Finalmente se establecieron en <strong>Wiesbaden</strong>, una ciudad a orillas del Rin cercana a Frankfurt del Meno, reconstruyendo sus vidas entre las ruinas de la Alemania de posguerra, extraños en la mitad occidental de un país que apenas reconocían.",
+    ch4_p4:       "En Wiesbaden, la <strong>madre</strong> de Erich —que había visto disolverse su mundo— esperaba, conservaba la esperanza y escribía cartas al otro lado del Atlántico.",
+    ch5_label:    "Capítulo V",
+    ch5_title:    "El Reencuentro",
+    ch5_p1:       "En <strong>1949</strong>, casi un cuarto de siglo después de que Erich cruzara por primera vez el Atlántico, su <strong>madre</strong> emprendió el mismo viaje: desde Wiesbaden hasta Argentina. Abordó un barco, dejó atrás las ruinas del viejo mundo y navegó hacia el reencuentro con su hijo en Buenos Aires.",
+    ch5_p2:       "Fue un reencuentro nacido de los escombros de las grandes catástrofes del siglo XX. Dos guerras mundiales, un desplazamiento forzado y un océano entre ellos... y sin embargo la familia volvió a unirse. Argentina se había convertido, al fin, en hogar para todos.",
+    tl_1905:      "Erich Paul Schneider y su hermano mellizo Willÿ Walter Schneider nacen el 15 de septiembre en Breslau, Prusia.",
+    tl_1914:      "Primera Guerra Mundial. Erich crece en medio del colapso del Imperio Alemán.",
+    tl_1926:      "Erich parte desde Bremen y emigra a Argentina, estableciéndose en Buenos Aires.",
+    tl_1939:      "Segunda Guerra Mundial. La familia de Erich en Breslau vive la guerra. Al avanzar las fuerzas aliadas, son obligados a huir de Breslau.",
+    tl_1945:      "La familia se reinstala en Wiesbaden, Alemania Occidental, y comienza una nueva vida.",
+    tl_1949:      "La madre de Erich emigra desde Wiesbaden a Argentina, reuniéndose con su hijo en Buenos Aires.",
+    tl_1975:      "Erich Paul Schneider fallece el 29 de marzo en Dean Funes, Córdoba, Argentina.",
+    tl_2026:      "Erica y Pablo Schneider parten desde Córdoba hacia Europa: Wrocław, Berlín, Frankfurt y Wiesbaden. Recorren las tierras de sus antepasados y reconstruyen la historia familiar.",
+    nav_return:   "100 Años Después",
+    ch6_label:    "Capítulo VI",
+    ch6_title:    "Cien Años Después",
+    ch6_p1:       "En la primavera de <strong>2026</strong>, ciento veintiún años después del nacimiento de Erich y Willÿ en aquella Breslau prusiana, dos de sus descendientes emprendieron el camino de regreso. <strong>Erica Schneider</strong> —hija de Erich— y su hijo <strong>Pablo</strong> partieron desde <strong>Córdoba</strong> y cruzaron el Atlántico en dirección opuesta a la de sus antepasados: no huyendo de nada, sino buscando algo. Buscando las huellas de lo que quedó.",
+    ch6_p2:       "El viaje los llevó por cuatro ciudades cargadas de historia familiar. Primero, <strong>Wrocław</strong> —la antigua Breslau—, donde recorrieron las calles que Erich conoció de niño: el río Óder, las plazas de la ciudad vieja, los edificios que sobrevivieron la guerra y el tiempo. La ciudad habla polaco hace más de ochenta años, pero entre sus piedras todavía es posible escuchar los ecos de aquella otra ciudad que fue.",
+    ch6_pull:     "Caminamos por las mismas calles que él caminó. No sé si él las recordaba, pero nosotros sí las vamos a recordar.",
+    ch6_p3:       "De Wrocław viajaron a <strong>Berlín</strong>, y luego hacia el oeste, a <strong>Frankfurt</strong> y <strong>Wiesbaden</strong> —la ciudad a orillas del Rin donde la familia se refugió después de la guerra. Fue allí donde encontraron lo que más les importaba: el barrio, la casa. Un edificio de paredes gruesas y ventanas altas que todavía existe, todavía en pie, como si hubiera esperado que alguien de la familia volviera a mirarlo.",
+    ch6_p4:       "La historia de Erich se reconstruyó con los pocos papeles que sobrevivieron al tiempo y a los desplazamientos: documentos sueltos, alguna foto sin fecha en el dorso, nombres escritos a mano con la letra apretada de otra época. Cada papel fue una pieza. Cada ciudad, una confirmación. El viaje no respondió todas las preguntas —algunas se perdieron para siempre— pero devolvió algo más valioso: la certeza de que aquellas raíces existieron, y de que todavía sostienen algo.",
+    ch6_p5:       "Erica y Pablo regresaron a Córdoba con los bolsillos llenos de imágenes, de nombres, de calles. Con la sensación de haber completado un círculo que Erich abrió hace casi cien años desde el puerto de Bremen.",
+    ch6_city_start:   "Córdoba",
+    ch6_map_start:    "abril–mayo 2026",
+    ch6_map_wroclaw:  "la antigua Breslau",
+    ch6_map_berlin:   "capital de Alemania",
+    ch6_map_wiesbaden:"Frankfurt y Wiesbaden",
+    photos_label: "Archivo",
+    photos_title: "Fotografías",
+    photos_desc:  "Una colección de imágenes del archivo familiar. Haz clic en cualquier fotografía para verla completa.",
+    footer_credit:"Un sitio memorial familiar &nbsp;·&nbsp; Creado con amor",
+  },
+
+  en: {
+    eyebrow:      "A Life Across Continents",
+    subtitle:     "From Breslau to Argentina — a story of migration, resilience, and new beginnings",
+    header_dates: "September 15, 1905 &nbsp;·&nbsp; Dean Funes, Córdoba, 1975",
+    nav_origins:  "Origins",
+    nav_journey:  "The Journey",
+    nav_argentina:"Argentina",
+    nav_family:   "Family in Germany",
+    nav_reunion:  "The Reunion",
+    nav_photos:   "Photographs",
+    quote_text:   "A man's roots run deeper than any border. He carries his homeland in his language, his faith, and the faces of those he loves.",
+    quote_cite:   "— In memory of Erich Paul Schneider",
+    ch1_label:    "Chapter I",
+    ch1_title:    "Origins in Breslau",
+    ch1_p1:       "<strong>Erich Paul Schneider</strong> and his fraternal twin brother <strong>Willÿ Walter Schneider</strong> were born on <strong>September 15, 1905</strong> in the city of <strong>Breslau</strong>, then a proud and prosperous capital of the Prussian province of Silesia. Today the city is known as Wrocław and lies within the borders of Poland — but at the time of the brothers' birth, it was a thriving German city, home to grand universities, elegant boulevards, and a close-knit community of German families.",
+    ch1_p2:       "He grew up in a world that was about to be shattered. When the <strong>First World War</strong> broke out in 1914, Erich was nine years old. He came of age watching the old European order collapse around him — the Kaiser's empire crumbling, soldiers returning broken from the trenches, and the economic despair of a nation stripped of its dignity by the Treaty of Versailles.",
+    ch1_pull:     "He watched the old world crumble, and chose to find his future somewhere new.",
+    ch1_p3:       "Yet amid the hardship, Breslau retained its character — its spires, its rivers, its people. It was the city that shaped Erich: his language, his values, and the bonds that would never fully leave him, no matter how far he traveled.",
+    ch2_label:    "Chapter II",
+    ch2_title:    "The Journey to Argentina",
+    ch2_p1:       "In <strong>1926</strong>, at twenty-one years of age, Erich made the decision that would define his life. Faced with the political instability and economic ruin of Weimar Germany, he departed from the port of <strong>Bremen</strong> and crossed the Atlantic Ocean — bound for <strong>Argentina</strong>.",
+    ch2_p2:       "He was not alone in this choice. The 1920s saw tens of thousands of European immigrants arrive on Argentine shores, drawn by the promise of land, work, and a stable future. Argentina was then one of the wealthiest countries in the world, and Buenos Aires — the \"Paris of South America\" — welcomed newcomers with open arms.",
+    map_born:     "1905 — born",
+    map_depart:   "departure from Bremen, 1926",
+    map_ocean:    "Atlantic Ocean",
+    map_weeks:    "weeks at sea",
+    map_arrive:   "arrival, 1926",
+    ch2_p3:       "The crossing was long — weeks aboard a steamship carrying emigrants, their luggage, their hopes. Erich arrived in Buenos Aires with little more than the clothes on his back and the German tongue in his mouth. But he arrived with something powerful: the will to build a life from nothing.",
+    ch3_label:    "Chapter III",
+    ch3_title:    "A New Life in Argentina",
+    ch3_p1:       "Erich put down roots in Argentina and made the country his home. He married, and together with his wife built a family and a life that was wholly Argentine — yet always marked by the memory of Breslau, of the rivers and rooftops he had left behind.",
+    ch3_p2:       "The German immigrant community in Argentina was vibrant and tight-knit. Language, food, music, and tradition bound families together across the ocean. Erich lived between two worlds: the new one he was building with his own hands, and the old one he carried in his heart.",
+    ch3_p3:       "Meanwhile, back in Germany, the world was darkening again. As Erich settled into Argentine life through the late 1920s and 1930s, his family in Breslau were watching the rise of a new, terrible order.",
+    ch4_label:    "Chapter IV",
+    ch4_title:    "The Family Left Behind",
+    ch4_p1:       "While Erich built his new life in Buenos Aires, the family he had left in Breslau lived through one of the darkest chapters in European history. The <strong>Second World War</strong> — from 1939 to 1945 — brought devastation to Germany and to Silesia in particular.",
+    ch4_p2:       "The German inhabitants of Breslau began fleeing west between 1944 and 1945, or were evacuated in subsequent years. <strong>In August 1945</strong>, Breslau was officially transferred to Poland and renamed Wrocław. From that point on, the population became almost exclusively Polish. Those Germans who had called the city home for generations were scattered across western Germany, forever separated from their streets, their churches, and their memories.",
+    ch4_pull:     "They were forced to leave behind everything they had ever known — their home, their city, their past.",
+    ch4_p3:       "Erich's family was among them. They packed what they could carry and made their way west. They eventually settled in <strong>Wiesbaden</strong>, a city on the Rhine close to Frankfurt am Main, rebuilding their lives in the ruins of postwar Germany — strangers in the western half of a country they barely recognized.",
+    ch4_p4:       "In Wiesbaden, Erich's <strong>mother</strong> — who had watched her world dissolve — waited, and hoped, and wrote letters across the Atlantic.",
+    ch5_label:    "Chapter V",
+    ch5_title:    "The Reunion",
+    ch5_p1:       "In <strong>1949</strong>, nearly a quarter century after Erich had first crossed the Atlantic, his <strong>mother</strong> made the same journey — from Wiesbaden to Argentina. She boarded a ship, left behind the ruins of the old world, and sailed to be reunited with her son in Buenos Aires.",
+    ch5_p2:       "It was a reunion born from the wreckage of the 20th century's great catastrophes. Two world wars, a forced expulsion, and an ocean between them — and yet the family came back together. Argentina had become, at last, home for all of them.",
+    tl_1905:      "Erich Paul Schneider and his fraternal twin brother Willÿ Walter Schneider are born on September 15 in Breslau, Prussia.",
+    tl_1914:      "World War I. Erich grows up amid the collapse of the German Empire.",
+    tl_1926:      "Erich departs from Bremen and emigrates to Argentina, settling in Buenos Aires.",
+    tl_1939:      "World War II. Erich's family in Breslau lives through the war. As Allied forces close in, they are forced to flee Breslau.",
+    tl_1945:      "The family resettles in Wiesbaden, West Germany, beginning life anew.",
+    tl_1949:      "Erich's mother emigrates from Wiesbaden to Argentina, reuniting with her son in Buenos Aires.",
+    tl_1975:      "Erich Paul Schneider passes away on March 29 in Dean Funes, Córdoba, Argentina.",
+    tl_2026:      "Erica and Pablo Schneider depart from Córdoba to Europe — Wrocław, Berlin, Frankfurt, and Wiesbaden — retracing the footsteps of their ancestors.",
+    nav_return:   "100 Years Later",
+    ch6_label:    "Chapter VI",
+    ch6_title:    "One Hundred Years Later",
+    ch6_p1:       "In the spring of <strong>2026</strong>, one hundred and twenty-one years after Erich and Willÿ's birth in that Prussian Breslau, two of their descendants made the journey back. <strong>Erica Schneider</strong> — Erich's daughter — and her son <strong>Pablo</strong> set out from <strong>Córdoba</strong> and crossed the Atlantic in the opposite direction from their ancestors: not fleeing anything, but searching for something. Searching for the traces of what remained.",
+    ch6_p2:       "The journey took them through four cities heavy with family history. First, <strong>Wrocław</strong> — the old Breslau — where they walked the streets Erich had known as a child: the Oder River, the squares of the old town, the buildings that survived war and time. The city has spoken Polish for more than eighty years, but between its stones it is still possible to hear the echoes of the other city it once was.",
+    ch6_pull:     "We walked the same streets he walked. I don't know if he still remembered them — but we will.",
+    ch6_p3:       "From Wrocław they traveled to <strong>Berlin</strong>, and then west to <strong>Frankfurt</strong> and <strong>Wiesbaden</strong> — the Rhine city where the family had taken refuge after the war. It was there they found what mattered most: the neighborhood, the house. A building of thick walls and tall windows that still stands, as if it had been waiting for someone from the family to come back and look at it.",
+    ch6_p4:       "Erich's story was pieced together from the few papers that survived time and displacement: loose documents, a photograph with no date on its back, names written in the cramped handwriting of another era. Each paper was a clue. Each city, a confirmation. The journey did not answer every question — some were lost forever — but it returned something more valuable: the certainty that those roots existed, and that they still hold something up.",
+    ch6_p5:       "Erica and Pablo returned to Córdoba with pockets full of images, names, and streets. With the feeling of having completed a circle that Erich had opened nearly a hundred years ago from the port of Bremen.",
+    ch6_city_start:   "Córdoba",
+    ch6_map_start:    "April–May 2026",
+    ch6_map_wroclaw:  "the old Breslau",
+    ch6_map_berlin:   "capital of Germany",
+    ch6_map_wiesbaden:"Frankfurt & Wiesbaden",
+    photos_label: "Archive",
+    photos_title: "Photographs",
+    photos_desc:  "A collection of images from the family archive. Click any photograph to view it in full.",
+    footer_credit:"A family memorial website &nbsp;·&nbsp; Created with love",
+  },
+
+  de: {
+    eyebrow:      "Ein Leben über Kontinente hinweg",
+    subtitle:     "Von Breslau nach Argentinien — eine Geschichte von Auswanderung, Beharrlichkeit und Neuanfängen",
+    header_dates: "15. September 1905 &nbsp;·&nbsp; Dean Funes, Córdoba, 1975",
+    nav_origins:  "Herkunft",
+    nav_journey:  "Die Reise",
+    nav_argentina:"Argentinien",
+    nav_family:   "Familie in Deutschland",
+    nav_reunion:  "Das Wiedersehen",
+    nav_photos:   "Fotografien",
+    quote_text:   "Die Wurzeln eines Menschen reichen tiefer als jede Grenze. Er trägt seine Heimat in seiner Sprache, seinem Glauben und in den Gesichtern derer, die er liebt.",
+    quote_cite:   "— Im Gedenken an Erich Paul Schneider",
+    ch1_label:    "Kapitel I",
+    ch1_title:    "Herkunft aus Breslau",
+    ch1_p1:       "<strong>Erich Paul Schneider</strong> und sein zweieiiger Zwillingsbruder <strong>Willÿ Walter Schneider</strong> wurden am <strong>15. September 1905</strong> in der Stadt <strong>Breslau</strong> geboren, damals stolze und prosperierende Hauptstadt der preußischen Provinz Schlesien. Heute heißt die Stadt Wrocław und liegt innerhalb der polnischen Grenzen — doch zur Zeit der Geburt der Brüder war sie eine blühende deutsche Stadt mit großen Universitäten, eleganten Boulevards und einer eng verbundenen deutschen Gemeinschaft.",
+    ch1_p2:       "Er wuchs in einer Welt auf, die kurz vor dem Zerbrechen stand. Als der <strong>Erste Weltkrieg</strong> 1914 ausbrach, war Erich neun Jahre alt. Er wurde erwachsen, während er miterlebte, wie die alte europäische Ordnung um ihn herum zusammenbrach — das Kaiserreich zerfiel, Soldaten gebrochen aus den Schützengräben heimkehrten und wirtschaftliche Verzweiflung eine Nation ergriffen hatte, die durch den Versailler Vertrag ihrer Würde beraubt worden war.",
+    ch1_pull:     "Er sah die alte Welt zerfallen und entschied sich, seine Zukunft anderswo zu suchen.",
+    ch1_p3:       "Doch trotz aller Not bewahrte Breslau seinen Charakter — seine Türme, seine Flüsse, seine Menschen. Es war die Stadt, die Erich geprägt hatte: seine Sprache, seine Werte und die Bindungen, die ihn nie ganz loslassen sollten, egal wie weit er reiste.",
+    ch2_label:    "Kapitel II",
+    ch2_title:    "Die Reise nach Argentinien",
+    ch2_p1:       "Im Jahr <strong>1926</strong>, mit einundzwanzig Jahren, traf Erich die Entscheidung, die sein Leben bestimmen sollte. Angesichts der politischen Instabilität und des wirtschaftlichen Ruins der Weimarer Republik reiste er zum Hafen von <strong>Bremen</strong> und überquerte den Atlantischen Ozean — in Richtung <strong>Argentinien</strong>.",
+    ch2_p2:       "Er war mit dieser Entscheidung nicht allein. In den 1920er-Jahren kamen Zehntausende europäischer Einwanderer an Argentiniens Küsten an, angezogen von der Aussicht auf Land, Arbeit und eine stabile Zukunft. Argentinien gehörte damals zu den reichsten Ländern der Welt, und Buenos Aires — das \"Paris Südamerikas\" — empfing Neuankömmlinge mit offenen Armen.",
+    map_born:     "1905 — Geburt",
+    map_depart:   "Abreise von Bremen, 1926",
+    map_ocean:    "Atlantischer Ozean",
+    map_weeks:    "Wochen auf See",
+    map_arrive:   "Ankunft, 1926",
+    ch2_p3:       "Die Überfahrt war lang — wochenlang an Bord eines Dampfers voller Auswanderer mit ihrem Gepäck und ihren Hoffnungen. Erich kam in Buenos Aires mit kaum mehr an als den Kleidern auf dem Leib und der deutschen Sprache auf den Lippen. Doch er kam mit etwas Mächtigem: dem Willen, aus dem Nichts ein Leben aufzubauen.",
+    ch3_label:    "Kapitel III",
+    ch3_title:    "Ein neues Leben in Argentinien",
+    ch3_p1:       "Erich schlug in Argentinien Wurzeln und machte das Land zu seiner Heimat. Er heiratete und baute gemeinsam mit seiner Frau eine Familie und ein ganz argentinisches Leben auf — das aber stets von der Erinnerung an Breslau, an die Flüsse und Dächer, die er hinter sich gelassen hatte, geprägt war.",
+    ch3_p2:       "Die deutschstämmige Einwanderergemeinschaft in Argentinien war lebhaft und zusammengewachsen. Sprache, Essen, Musik und Traditionen hielten die Familien über den Ozean hinweg zusammen. Erich lebte zwischen zwei Welten: der neuen, die er mit eigenen Händen aufbaute, und der alten, die er im Herzen trug.",
+    ch3_p3:       "Inzwischen verdunkelte sich in Deutschland die Lage erneut. Während Erich sich in den späten 1920er- und 1930er-Jahren in Argentinien einlebte, beobachtete seine Familie in Breslau den Aufstieg einer neuen, schrecklichen Ordnung.",
+    ch4_label:    "Kapitel IV",
+    ch4_title:    "Die zurückgebliebene Familie",
+    ch4_p1:       "Während Erich in Buenos Aires sein neues Leben aufbaute, erlebte die Familie, die er in Breslau zurückgelassen hatte, eines der dunkelsten Kapitel der europäischen Geschichte. Der <strong>Zweite Weltkrieg</strong> — von 1939 bis 1945 — brachte Verwüstung über Deutschland und besonders über Schlesien.",
+    ch4_p2:       "Die deutschen Einwohner Breslaus begannen zwischen 1944 und 1945 in Richtung Westen zu fliehen oder wurden in den Folgejahren evakuiert. <strong>Im August 1945</strong> wurde Breslau offiziell Polen zugesprochen und in Wrocław umbenannt. Von da an war die Bevölkerung fast ausschließlich polnisch. Die Deutschen, die die Stadt seit Generationen ihre Heimat genannt hatten, wurden über Westdeutschland verstreut — für immer getrennt von ihren Straßen, ihren Kirchen und ihren Erinnerungen.",
+    ch4_pull:     "Sie wurden gezwungen, alles zurückzulassen, was sie je gekannt hatten — ihr Zuhause, ihre Stadt, ihre Vergangenheit.",
+    ch4_p3:       "Erichs Familie gehörte dazu. Sie packten, was sie tragen konnten, und machten sich auf den Weg nach Westen. Schließlich ließen sie sich in <strong>Wiesbaden</strong> nieder, einer Stadt am Rhein nahe Frankfurt am Main, und bauten ihr Leben im zerstörten Nachkriegsdeutschland neu auf — als Fremde in der westlichen Hälfte eines Landes, das sie kaum wiedererkannten.",
+    ch4_p4:       "In Wiesbaden wartete Erichs <strong>Mutter</strong> — die erlebt hatte, wie ihre Welt zerbrach — hoffte und schrieb Briefe über den Atlantik.",
+    ch5_label:    "Kapitel V",
+    ch5_title:    "Das Wiedersehen",
+    ch5_p1:       "Im Jahr <strong>1949</strong>, fast ein Vierteljahrhundert nachdem Erich erstmals den Atlantik überquert hatte, trat seine <strong>Mutter</strong> dieselbe Reise an — von Wiesbaden nach Argentinien. Sie bestieg ein Schiff, ließ die Trümmer der alten Welt hinter sich und fuhr dem Wiedersehen mit ihrem Sohn in Buenos Aires entgegen.",
+    ch5_p2:       "Es war ein Wiedersehen, das aus den Trümmern der großen Katastrophen des 20. Jahrhunderts geboren wurde. Zwei Weltkriege, eine erzwungene Vertreibung und ein Ozean zwischen ihnen — und dennoch fand die Familie wieder zusammen. Argentinien war endlich für alle zur Heimat geworden.",
+    tl_1905:      "Erich Paul Schneider und sein zweieiiger Zwillingsbruder Willÿ Walter Schneider werden am 15. September in Breslau, Preußen, geboren.",
+    tl_1914:      "Erster Weltkrieg. Erich wächst im Zusammenbruch des Deutschen Kaiserreichs auf.",
+    tl_1926:      "Erich bricht von Bremen auf und wandert nach Argentinien aus, wo er sich in Buenos Aires niederlässt.",
+    tl_1939:      "Zweiter Weltkrieg. Erichs Familie in Breslau erlebt den Krieg. Als alliierte Truppen vorrücken, werden sie zur Flucht aus Breslau gezwungen.",
+    tl_1945:      "Die Familie siedelt sich in Wiesbaden, Westdeutschland, an und beginnt ein neues Leben.",
+    tl_1949:      "Erichs Mutter wandert von Wiesbaden nach Argentinien aus und wird mit ihrem Sohn in Buenos Aires wiedervereint.",
+    tl_1975:      "Erich Paul Schneider stirbt am 29. März in Dean Funes, Córdoba, Argentinien.",
+    tl_2026:      "Erica und Pablo Schneider brechen von Córdoba nach Europa auf — Wrocław, Berlin, Frankfurt und Wiesbaden — auf den Spuren ihrer Vorfahren.",
+    nav_return:   "100 Jahre später",
+    ch6_label:    "Kapitel VI",
+    ch6_title:    "Hundert Jahre später",
+    ch6_p1:       "Im Frühling <strong>2026</strong>, hundertzwanzig Jahre nach der Geburt von Erich und Willÿ im preußischen Breslau, traten zwei ihrer Nachkommen die Reise zurück an. <strong>Erica Schneider</strong> — Erichs Tochter — und ihr Sohn <strong>Pablo</strong> brachen von <strong>Córdoba</strong> auf und überquerten den Atlantik in entgegengesetzter Richtung als ihre Vorfahren: nicht auf der Flucht, sondern auf der Suche. Auf der Suche nach den Spuren dessen, was geblieben ist.",
+    ch6_p2:       "Die Reise führte sie durch vier Städte voller Familiengeschichte. Zuerst <strong>Wrocław</strong> — das alte Breslau — wo sie durch Straßen gingen, die Erich als Kind gekannt hatte: die Oder, die Plätze der Altstadt, Gebäude, die Krieg und Zeit überstanden haben. Die Stadt spricht seit über achtzig Jahren Polnisch, doch zwischen ihren Steinen ist noch immer das Echo jener anderen Stadt zu hören, die sie einmal war.",
+    ch6_pull:     "Wir gingen durch dieselben Straßen, durch die er gegangen war. Ob er sie noch in Erinnerung hatte, weiß ich nicht — aber wir werden sie nie vergessen.",
+    ch6_p3:       "Von Wrocław reisten sie nach <strong>Berlin</strong>, und dann nach Westen nach <strong>Frankfurt</strong> und <strong>Wiesbaden</strong> — der Rheinstadt, in der die Familie nach dem Krieg Zuflucht gefunden hatte. Dort fanden sie, was ihnen am meisten bedeutete: das Viertel, das Haus. Ein Gebäude mit dicken Mauern und hohen Fenstern, das noch immer steht, als hätte es darauf gewartet, dass jemand aus der Familie zurückkommt und es betrachtet.",
+    ch6_p4:       "Erichs Geschichte wurde aus den wenigen Papieren zusammengesetzt, die Zeit und Vertreibung überstanden hatten: lose Dokumente, ein Foto ohne Datum auf der Rückseite, Namen in der engen Handschrift einer anderen Zeit. Jedes Papier war ein Puzzlestück. Jede Stadt eine Bestätigung. Die Reise beantwortete nicht alle Fragen — manche sind für immer verloren — aber sie gab etwas zurück, das wertvoller ist: die Gewissheit, dass diese Wurzeln existierten, und dass sie noch immer etwas tragen.",
+    ch6_p5:       "Erica und Pablo kehrten nach Córdoba zurück — mit Bildern, Namen und Straßen im Gedächtnis. Mit dem Gefühl, einen Kreis geschlossen zu haben, den Erich vor fast hundert Jahren im Hafen von Bremen geöffnet hatte.",
+    ch6_city_start:   "Córdoba",
+    ch6_map_start:    "April–Mai 2026",
+    ch6_map_wroclaw:  "das alte Breslau",
+    ch6_map_berlin:   "Hauptstadt Deutschlands",
+    ch6_map_wiesbaden:"Frankfurt & Wiesbaden",
+    photos_label: "Archiv",
+    photos_title: "Fotografien",
+    photos_desc:  "Eine Sammlung von Bildern aus dem Familienarchiv. Klicke auf ein Foto, um es in voller Größe zu sehen.",
+    footer_credit:"Eine familiäre Gedenkseite &nbsp;·&nbsp; Mit Liebe gestaltet",
+  },
+
+  pl: {
+    eyebrow:      "Życie na przestrzeni kontynentów",
+    subtitle:     "Z Wrocławia do Argentyny — historia emigracji, wytrwałości i nowych początków",
+    header_dates: "15 września 1905 &nbsp;·&nbsp; Dean Funes, Córdoba, 1975",
+    nav_origins:  "Korzenie",
+    nav_journey:  "Podróż",
+    nav_argentina:"Argentyna",
+    nav_family:   "Rodzina w Niemczech",
+    nav_reunion:  "Ponowne spotkanie",
+    nav_photos:   "Fotografie",
+    quote_text:   "Korzenie człowieka sięgają głębiej niż jakiekolwiek granice. Nosi w sobie ojczyznę — w języku, wierze i twarzach tych, których kocha.",
+    quote_cite:   "— Ku pamięci Ericha Paula Schneidera",
+    ch1_label:    "Rozdział I",
+    ch1_title:    "Korzenie we Wrocławiu",
+    ch1_p1:       "<strong>Erich Paul Schneider</strong> i jego brat bliźniak dwujajowy <strong>Willÿ Walter Schneider</strong> urodzili się <strong>15 września 1905 roku</strong> we <strong>Wrocławiu</strong> (Breslau) — dumnej i prężnie rozwijającej się stolicy pruskiej prowincji Śląsk. Dziś miasto leży w granicach Polski, jednak w czasach narodzin braci było kwitnącym niemieckim miastem, domem wielkich uczelni, eleganckich bulwarów i zżytej społeczności niemieckich rodzin.",
+    ch1_p2:       "Dorastał w świecie, który miał się wkrótce rozsypać. Gdy w 1914 roku wybuchła <strong>I wojna światowa</strong>, Erich miał dziewięć lat. Dojrzewał, obserwując upadek starego europejskiego porządku — rozpad cesarstwa Kajzera, powrót żołnierzy złamanych okopami i ekonomiczną rozpacz narodu okradzionego z godności przez traktat wersalski.",
+    ch1_pull:     "Widział, jak stary świat się wali, i postanowił szukać swojej przyszłości gdzie indziej.",
+    ch1_p3:       "Mimo trudności Wrocław zachował swój charakter — wieże, rzeki, ludzi. To miasto ukształtowało Ericha: jego język, wartości i więzi, które nigdy w pełni go nie opuściły, bez względu na to, jak daleko zaszedł.",
+    ch2_label:    "Rozdział II",
+    ch2_title:    "Podróż do Argentyny",
+    ch2_p1:       "W <strong>1926 roku</strong>, mając dwadzieścia jeden lat, Erich podjął decyzję, która miała odmienić jego życie. W obliczu politycznej niestabilności i gospodarczej ruiny weimarskich Niemiec wyruszył z portu w <strong>Bremie</strong> i przepłynął Ocean Atlantycki — w stronę <strong>Argentyny</strong>.",
+    ch2_p2:       "Nie był w tej decyzji osamotniony. W latach dwudziestych dziesiątki tysięcy europejskich emigrantów przybywały na argentyńskie brzegi, przyciągane obietnicą ziemi, pracy i stabilnej przyszłości. Argentyna była wówczas jednym z najbogatszych krajów świata, a Buenos Aires — \"Paryż Ameryki Południowej\" — przyjmowało przybyszów z otwartymi ramionami.",
+    map_born:     "1905 — narodziny",
+    map_depart:   "odjazd z Bremy, 1926",
+    map_ocean:    "Ocean Atlantycki",
+    map_weeks:    "tygodnie na morzu",
+    map_arrive:   "przybycie, 1926",
+    ch2_p3:       "Przeprawa była długa — tygodnie na pokładzie parowca wypełnionego emigrantami, ich bagażami i nadziejami. Erich przybył do Buenos Aires z niewiele więcej niż ubraniem na grzbiecie i niemieckim językiem w ustach. Jednak przyjechał z czymś potężnym: wolą zbudowania życia od zera.",
+    ch3_label:    "Rozdział III",
+    ch3_title:    "Nowe życie w Argentynie",
+    ch3_p1:       "Erich zapuścił korzenie w Argentynie i uczynił z niej swój dom. Ożenił się i wspólnie z żoną zbudował rodzinę i życie w pełni argentyńskie — choć zawsze naznaczone wspomnieniem Wrocławia, rzek i dachów, które zostawił za sobą.",
+    ch3_p2:       "Niemiecka społeczność emigrantów w Argentynie była prężna i zżyta. Język, jedzenie, muzyka i tradycje łączyły rodziny ponad oceanem. Erich żył pomiędzy dwoma światami: nowym, który budował własnymi rękami, i starym, który nosił w sercu.",
+    ch3_p3:       "Tymczasem w Niemczech świat znów się zaciemniał. Gdy Erich osiedlał się w Argentynie w latach dwudziestych i trzydziestych, jego rodzina we Wrocławiu obserwowała powstanie nowego, straszliwego porządku.",
+    ch4_label:    "Rozdział IV",
+    ch4_title:    "Rodzina, która została",
+    ch4_p1:       "Podczas gdy Erich budował nowe życie w Buenos Aires, rodzina, którą zostawił we Wrocławiu, przeżywała jeden z najciemniejszych rozdziałów europejskiej historii. <strong>II wojna światowa</strong> — od 1939 do 1945 roku — przyniosła zniszczenie Niemcom, a Śląskowi w szczególności.",
+    ch4_p2:       "Niemieccy mieszkańcy Wrocławia zaczęli uciekać na zachód między 1944 a 1945 rokiem lub byli ewakuowani w kolejnych latach. <strong>W sierpniu 1945 roku</strong> Wrocław oficjalnie stał się częścią Polski. Od tej chwili ludność miasta stała się niemal wyłącznie polska. Niemcy, którzy od pokoleń nazywali to miasto swoim domem, zostali rozproszeni po Niemczech Zachodnich — na zawsze oddzieleni od swoich ulic, kościołów i wspomnień.",
+    ch4_pull:     "Zostali zmuszeni porzucić wszystko, co kiedykolwiek znali — dom, miasto, przeszłość.",
+    ch4_p3:       "Rodzina Ericha znalazła się wśród nich. Spakowali, co mogli unieść, i ruszyli na zachód. Ostatecznie osiedlili się w <strong>Wiesbaden</strong>, mieście nad Renem niedaleko Frankfurtu nad Menem, odbudowując życie wśród gruzów powojennych Niemiec — obcy w zachodniej połowie kraju, który ledwo rozpoznawali.",
+    ch4_p4:       "W Wiesbaden <strong>matka</strong> Ericha — która widziała, jak jej świat się rozpada — czekała, żywiła nadzieję i pisała listy przez Atlantyk.",
+    ch5_label:    "Rozdział V",
+    ch5_title:    "Ponowne spotkanie",
+    ch5_p1:       "W <strong>1949 roku</strong>, prawie ćwierć wieku po tym, jak Erich po raz pierwszy przepłynął Atlantyk, jego <strong>matka</strong> odbyła tę samą podróż — z Wiesbaden do Argentyny. Wsiadła na statek, zostawiła za sobą ruiny starego świata i popłynęła na spotkanie z synem w Buenos Aires.",
+    ch5_p2:       "Było to spotkanie zrodzone z gruzów wielkich katastrof XX wieku. Dwie wojny światowe, przymusowe wysiedlenie i ocean między nimi — a jednak rodzina znów się złączyła. Argentyna stała się wreszcie domem dla wszystkich.",
+    tl_1905:      "Erich Paul Schneider i jego brat bliźniak dwujajowy Willÿ Walter Schneider rodzą się 15 września we Wrocławiu (Breslau) w Prusach.",
+    tl_1914:      "I wojna światowa. Erich dorasta podczas upadku Cesarstwa Niemieckiego.",
+    tl_1926:      "Erich wyrusza z Bremy i emigruje do Argentyny, osiedlając się w Buenos Aires.",
+    tl_1939:      "II wojna światowa. Rodzina Ericha we Wrocławiu przeżywa wojnę. Gdy wojska alianckie nacierają, zostają zmuszeni do ucieczki z Wrocławia.",
+    tl_1945:      "Rodzina osiedla się w Wiesbaden w Niemczech Zachodnich i rozpoczyna życie od nowa.",
+    tl_1949:      "Matka Ericha emigruje z Wiesbaden do Argentyny i ponownie spotyka się z synem w Buenos Aires.",
+    tl_1975:      "Erich Paul Schneider umiera 29 marca w Dean Funes, Córdoba, Argentyna.",
+    tl_2026:      "Erica i Pablo Schneider wyruszają z Córdoby do Europy — Wrocław, Berlin, Frankfurt i Wiesbaden — śladami swoich przodków.",
+    nav_return:   "100 lat później",
+    ch6_label:    "Rozdział VI",
+    ch6_title:    "Sto lat później",
+    ch6_p1:       "Wiosną <strong>2026 roku</strong>, sto dwadzieścia jeden lat po narodzinach Ericha i Willÿ w pruskim Wrocławiu, dwoje ich potomków wyruszyło w drogę powrotną. <strong>Erica Schneider</strong> — córka Ericha — i jej syn <strong>Pablo</strong> wyruszyli z <strong>Córdoby</strong> i przepłynęli Atlantyk w przeciwnym kierunku niż ich przodkowie: nie uciekając przed niczym, lecz szukając czegoś. Śladów tego, co pozostało.",
+    ch6_p2:       "Podróż zawiodła ich przez cztery miasta pełne rodzinnej historii. Najpierw <strong>Wrocław</strong> — dawny Breslau — gdzie chodzili ulicami, które Erich znał jako dziecko: Odra, place starego miasta, budynki, które przetrwały wojnę i czas. Miasto mówi po polsku od ponad osiemdziesięciu lat, ale między jego kamieniami wciąż słychać echa tamtego innego miasta, którym kiedyś było.",
+    ch6_pull:     "Chodziliśmy tymi samymi ulicami co on. Nie wiem, czy je pamiętał — ale my zapamiętamy je na zawsze.",
+    ch6_p3:       "Z Wrocławia pojechali do <strong>Berlina</strong>, a potem na zachód — do <strong>Frankfurtu</strong> i <strong>Wiesbaden</strong>, miasta nad Renem, gdzie rodzina szukała schronienia po wojnie. To właśnie tam znaleźli to, co było dla nich najważniejsze: dzielnicę, dom. Budynek o grubych murach i wysokich oknach, który stoi do dziś, jakby czekał, aż ktoś z rodziny wróci i na niego spojrzy.",
+    ch6_p4:       "Historia Ericha została odtworzona z nielicznych dokumentów, które przetrwały czas i wysiedlenie: luźne papiery, zdjęcie bez daty na odwrocie, imiona zapisane ciasnym pismem innej epoki. Każdy dokument był wskazówką. Każde miasto — potwierdzeniem. Podróż nie odpowiedziała na wszystkie pytania — niektóre zaginęły na zawsze — ale zwróciła coś cenniejszego: pewność, że te korzenie istniały i że wciąż coś podtrzymują.",
+    ch6_p5:       "Erica i Pablo wrócili do Córdoby z głowami pełnymi obrazów, imion i ulic. Z poczuciem, że zamknęli krąg, który Erich otworzył niemal sto lat temu w porcie w Bremie.",
+    ch6_city_start:   "Córdoba",
+    ch6_map_start:    "kwiecień–maj 2026",
+    ch6_map_wroclaw:  "dawny Breslau",
+    ch6_map_berlin:   "stolica Niemiec",
+    ch6_map_wiesbaden:"Frankfurt i Wiesbaden",
+    photos_label: "Archiwum",
+    photos_title: "Fotografie",
+    photos_desc:  "Kolekcja zdjęć z rodzinnego archiwum. Kliknij dowolną fotografię, aby zobaczyć ją w pełnym rozmiarze.",
+    footer_credit:"Rodzinna strona pamiątkowa &nbsp;·&nbsp; Stworzona z miłością",
+  }
+};
+
+let currentLang = 'es';
+
+function setLang(lang, updateUrl = true) {
+  if (!translations[lang]) lang = 'es';
+  currentLang = lang;
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+  document.documentElement.lang = lang;
+  document.title = lang === 'es' ? 'Erich Paul Schneider — Una Vida a Través de los Continentes'
+                 : lang === 'de' ? 'Erich Paul Schneider — Ein Leben über Kontinente hinweg'
+                 : lang === 'pl' ? 'Erich Paul Schneider — Życie na przestrzeni kontynentów'
+                 : 'Erich Paul Schneider — A Life Across Continents';
+  // Sync URL query param without reloading the page
+  if (updateUrl && history.replaceState) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', lang);
+    history.replaceState(null, '', url.toString());
+  }
+}
+
+// On load: read ?lang= param, fall back to 'es'
+const urlLang = new URLSearchParams(window.location.search).get('lang');
+setLang(urlLang || 'es', false);  // don't push to history on initial load
+
+function openLightbox(src) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
