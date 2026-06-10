@@ -601,11 +601,11 @@
 
   <!-- Navigation -->
   <nav>
-    <a href="#origins"  data-i18n="nav_origins"></a>
-    <a href="#journey"  data-i18n="nav_journey"></a>
-    <a href="#argentina" data-i18n="nav_argentina"></a>
-    <a href="#family"   data-i18n="nav_family"></a>
-    <a href="#reunion"  data-i18n="nav_reunion"></a>
+    <a href="#origins"    data-i18n="nav_origins"></a>
+    <a href="#journey"    data-i18n="nav_journey"></a>
+    <a href="#family"     data-i18n="nav_family"></a>
+    <a href="#reunion"    data-i18n="nav_reunion"></a>
+    <a href="#dean-funes" data-i18n="nav_dean"></a>
     <a href="#return"     data-i18n="nav_return"></a>
     <a href="#cronologia" data-i18n="nav_cronologia"></a>
     <a href="#photos"     data-i18n="nav_photos"></a>
@@ -712,18 +712,8 @@
     </div>
   </section>
 
-  <!-- Ch III: Argentina -->
-  <section id="argentina">
-    <p class="section-label" data-i18n="ch3_label"></p>
-    <h2 data-i18n="ch3_title"></h2>
-    <div class="divider"></div>
-    <p data-i18n="ch3_p1"></p>
-    <p data-i18n="ch3_p2"></p>
-    <p data-i18n="ch3_p3"></p>
-  </section>
-
-  <!-- Ch IV: Family -->
-  <section id="family" style="background: var(--paper-dark);">
+  <!-- Ch III: Family Left Behind -->
+  <section id="family">
     <p class="section-label" data-i18n="ch4_label"></p>
     <h2 data-i18n="ch4_title"></h2>
     <div class="divider"></div>
@@ -760,8 +750,8 @@
     </div>
   </section>
 
-  <!-- Ch V: Emma y el Reencuentro -->
-  <section id="reunion">
+  <!-- Ch IV: Emma y el Reencuentro -->
+  <section id="reunion" style="background: var(--paper-dark);">
     <p class="section-label" data-i18n="ch5_label"></p>
     <h2 data-i18n="ch5_title"></h2>
     <div class="divider"></div>
@@ -793,6 +783,28 @@
       </div>
     </div>
 
+  </section>
+
+  <!-- Ch V: Dean Funes -->
+  <section id="dean-funes">
+    <p class="section-label" data-i18n="ch_dean_label"></p>
+    <h2 data-i18n="ch_dean_title"></h2>
+    <div class="divider"></div>
+    <p data-i18n="ch_dean_p1"></p>
+    <p data-i18n="ch_dean_p2"></p>
+    <p data-i18n="ch_dean_p3"></p>
+    <div class="doc-gallery">
+      <div class="doc-item">
+        <img src="images/photo-011.jpg" style="cursor:zoom-in;"
+             onclick="openLightbox('images/photo-011.jpg')">
+        <p class="doc-caption" data-i18n="ch_dean_cap011"></p>
+      </div>
+      <div class="doc-item">
+        <img src="images/photo-012.jpg" style="cursor:zoom-in;"
+             onclick="openLightbox('images/photo-012.jpg')">
+        <p class="doc-caption" data-i18n="ch_dean_cap012"></p>
+      </div>
+    </div>
   </section>
 
   <!-- Ch VI: 100 años después -->
@@ -937,9 +949,9 @@ const translations = {
     header_dates: "15 de septiembre de 1905 &nbsp;·&nbsp; Dean Funes, Córdoba, 1975",
     nav_origins:  "Orígenes",
     nav_journey:  "El Viaje",
-    nav_argentina:"Argentina",
     nav_family:   "Familia en Alemania",
     nav_reunion:  "El Reencuentro",
+    nav_dean:     "Dean Funes",
     nav_photos:   "Fotografías",
     quote_text:   "Las raíces de un hombre son más profundas que cualquier frontera. Lleva su patria en su lengua, su fe y en los rostros de quienes ama.",
     quote_cite:   "— En memoria de Erich Paul Schneider",
@@ -966,12 +978,7 @@ const translations = {
     ch2_cedula_cap000: "Cédula de Identidad de la República Argentina, Buenos Aires. El documento recibido al arribar.",
     ch2_cedula_cap001: "Interior de la cédula: datos personales, profesión de mecánico, nacimiento en Breslau, nación alemana. Foto de Erich.",
     ch2_cedula_cap002: "Sello de la Jefatura de Policía de Buenos Aires, firma de Erich Schneider y huella digital.",
-    ch3_label:    "Capítulo III",
-    ch3_title:    "Una Nueva Vida en Argentina",
-    ch3_p1:       "Erich llegó a <strong>Buenos Aires</strong> en 1926 y vivió un par de años en la capital, encontrando su lugar entre la comunidad de inmigrantes alemanes que compartían su idioma y sus costumbres. Pero fue al interior del país donde halló su verdadero hogar: <strong>Dean Funes</strong>, una ciudad pequeña y serena en el norte de la provincia de <strong>Córdoba</strong>.",
-    ch3_p2:       "Allí se estableció como <strong>electricista-mecánico</strong> en la <strong>usina eléctrica</strong> de la ciudad. El trabajo lo arraigó en la vida cotidiana de Dean Funes, y fue en ese pueblo donde conoció a <strong>Juana Lucía Isabel Cáceres</strong>, con quien se casó y construyó una familia. Tuvieron tres hijas: <strong>Susana</strong>, <strong>Claudia</strong> y <strong>Erica</strong>.",
-    ch3_p3:       "Mientras tanto, en Alemania, el mundo volvía a oscurecerse. Mientras Erich construía su vida en Dean Funes durante los años treinta y cuarenta, su familia en Breslau observaba el ascenso de un nuevo y terrible orden.",
-    ch4_label:    "Capítulo IV",
+    ch4_label:    "Capítulo III",
     ch4_title:    "La Familia que Quedó Atrás",
     ch4_p1:       "Mientras Erich construía su nueva vida en Buenos Aires, la familia que había dejado en Breslau vivió uno de los capítulos más oscuros de la historia europea. La <strong>Segunda Guerra Mundial</strong> —de 1939 a 1945— trajo devastación a Alemania y a Silesia en particular.",
     ch4_p2:       "A medida que la guerra llegaba a su fin, los habitantes alemanes de Breslau comenzaron a huir hacia el oeste entre 1944 y 1945, o fueron evacuados en años posteriores. <strong>En agosto de 1945</strong>, Breslau pasó a formar parte de Polonia oficialmente, y la ciudad fue rebautizada Wrocław. A partir de entonces, la población pasó a ser casi exclusivamente polaca. Los alemanes que durante generaciones habían llamado hogar a esa ciudad quedaron dispersados por la Alemania occidental, separados para siempre de sus calles, sus iglesias y sus recuerdos.",
@@ -984,7 +991,7 @@ const translations = {
     ch4_willy_cap007: "La esposa de Willÿ Walter Schneider. Retrato de estudio.",
     ch4_willy_cap009: "Willÿ Walter Schneider. Retrato de estudio.",
     ch4_willy_cap006: "Willÿ Walter Schneider y su esposa.",
-    ch5_label:    "Capítulo V",
+    ch5_label:    "Capítulo IV",
     ch5_title:    "Emma y el Reencuentro",
     ch5_emma_name:  "Emma Anna Berta Langner · 1881",
     ch5_portrait_caption: "Fotografía del pasaporte de Emma, emitido en Wiesbaden, 1949.",
@@ -994,7 +1001,7 @@ const translations = {
     ch5_pull:     "Objeto del viaje, según el registro oficial: <em>reunirse con su hijo</em>.",
     ch5_p4:       "El <strong>2 de agosto de 1949</strong>, Emma abordó el vapor <strong>Formosa</strong> con destino a Buenos Aires. En el formulario de ingreso a la Argentina, declaró su último domicilio en Wiesbaden y anotó los nombres de sus dos hijos: Erich Paul Schneider, 44 años; Willÿ Walter Schneider, 44 años.",
     ch5_p5:       "Fue un reencuentro nacido de los escombros del siglo XX. Dos guerras mundiales, el desplazamiento forzado y un océano de por medio — y sin embargo la familia volvió a encontrarse. Argentina se había convertido, al fin, en hogar para todos.",
-    ch5_p6:       "Solo un año después de su llegada, Emma falleció el <strong>31 de octubre de 1950</strong>, a las veintidós horas. Había cruzado el Atlántico para reencontrarse con su hijo, y murió en Argentina, a su lado. El <strong>29 de marzo de 1975</strong>, <strong>Erich Paul Schneider</strong> también falleció, en Dean Funes, Córdoba. La historia que había comenzado en las orillas del Óder llegaba a su cierre silencioso, a miles de kilómetros de donde todo empezó.",
+    ch5_p6:       "Solo un año después de su llegada, Emma falleció el <strong>31 de octubre de 1950</strong>, a las veintidós horas. Había cruzado el Atlántico para reencontrarse con su hijo, y murió en Argentina, a su lado.",
     ch5_caption_matrimonio: "Heiratsurkunde — Acta de matrimonio de Karl Wilhelm Schneider y Emma Anna Berta Langner. Großgraben, 30 de julio de 1903.",
     ch5_caption_passport:   "Documento de viaje temporal emitido en Wiesbaden, 29 de junio de 1949. Válido únicamente para Argentina.",
     ch5_caption_inmig:      "Registro de ingreso — Dirección de Inmigración Argentina. Consulado en Frankfurt del Meno, 29 de julio de 1949.",
@@ -1019,6 +1026,13 @@ const translations = {
     ch_thanks_grossgraben: "<em>Reservado para agradecer a la familia de Großgraben que acompañó a Erica a recorrer el pueblo, buscar la iglesia y reencontrarse con el lugar donde todo comenzó.</em>",
     ch_tl_label:  "Cronología",
     ch_tl_title:  "Una Vida en el Tiempo",
+    ch_dean_label: "Capítulo V",
+    ch_dean_title: "Dean Funes, Córdoba",
+    ch_dean_p1:    "A comienzos de la década de 1950, una oportunidad laboral llevó a Erich al interior del país. Se trasladó a <strong>Dean Funes</strong>, una ciudad tranquila en el norte de la provincia de <strong>Córdoba</strong>, donde encontró trabajo como <strong>electricista-mecánico</strong> en la <strong>usina eléctrica</strong> de la ciudad.",
+    ch_dean_p2:    "El trabajo lo fue arraigando en la vida cotidiana del pueblo. Fue allí donde conoció a <strong>Juana Lucía Isabel Cáceres</strong>, con quien se casó y construyó una familia. Tuvieron tres hijas: <strong>Susana</strong>, <strong>Claudia</strong> y <strong>Erica</strong>.",
+    ch_dean_p3:    "Erich Paul Schneider falleció el <strong>29 de marzo de 1975</strong> en Dean Funes, en la ciudad que había hecho su hogar.",
+    ch_dean_cap011: "Erich y Juana, brindando en su fiesta de casamiento.",
+    ch_dean_cap012: "Foto familiar en el casamiento de Erich y Juana.",
     ch6_label:    "Capítulo VI",
     ch6_title:    "Cien Años Después",
     ch6_p1:       "En <strong>2026</strong>, exactamente cien años después de que Erich abandonara el puerto de Bremen rumbo a Argentina, dos de sus descendientes emprendieron el camino de regreso. <strong>Erica Schneider</strong> —hija de Erich— y su hijo <strong>Pablo</strong> volvieron a pisar las tierras de sus antepasados: partieron desde <strong>Córdoba</strong> y cruzaron el Atlántico en dirección opuesta, no huyendo de nada, sino buscando algo. Buscando las huellas de lo que quedó.",
@@ -1044,9 +1058,9 @@ const translations = {
     header_dates: "September 15, 1905 &nbsp;·&nbsp; Dean Funes, Córdoba, 1975",
     nav_origins:  "Origins",
     nav_journey:  "The Journey",
-    nav_argentina:"Argentina",
     nav_family:   "Family in Germany",
     nav_reunion:  "The Reunion",
+    nav_dean:     "Dean Funes",
     nav_photos:   "Photographs",
     quote_text:   "A man's roots run deeper than any border. He carries his homeland in his language, his faith, and the faces of those he loves.",
     quote_cite:   "— In memory of Erich Paul Schneider",
@@ -1073,12 +1087,7 @@ const translations = {
     ch2_cedula_cap000: "Argentine Republic Identity Card, Buenos Aires. The document received upon arrival.",
     ch2_cedula_cap001: "Interior of the identity card: personal details, profession as mechanic, born in Breslau, German nationality. Photo of Erich.",
     ch2_cedula_cap002: "Buenos Aires Police headquarters stamp, Erich Schneider's signature and fingerprint.",
-    ch3_label:    "Chapter III",
-    ch3_title:    "A New Life in Argentina",
-    ch3_p1:       "Erich arrived in <strong>Buenos Aires</strong> in 1926 and spent a couple of years in the capital, finding his footing among the community of German immigrants who shared his language and customs. But it was in the Argentine interior where he found his true home: <strong>Dean Funes</strong>, a small, quiet city in the north of <strong>Córdoba</strong> province.",
-    ch3_p2:       "There he settled as an <strong>electrician-mechanic</strong> at the city's <strong>power plant</strong>. The work rooted him in the daily life of Dean Funes, and it was in that town where he met <strong>Juana Lucía Isabel Cáceres</strong>, whom he married and with whom he built a family. They had three daughters: <strong>Susana</strong>, <strong>Claudia</strong>, and <strong>Erica</strong>.",
-    ch3_p3:       "Meanwhile, back in Germany, the world was darkening again. As Erich built his life in Dean Funes through the 1930s and 1940s, his family in Breslau were watching the rise of a new, terrible order.",
-    ch4_label:    "Chapter IV",
+    ch4_label:    "Chapter III",
     ch4_title:    "The Family Left Behind",
     ch4_p1:       "While Erich built his new life in Buenos Aires, the family he had left in Breslau lived through one of the darkest chapters in European history. The <strong>Second World War</strong> — from 1939 to 1945 — brought devastation to Germany and to Silesia in particular.",
     ch4_p2:       "The German inhabitants of Breslau began fleeing west between 1944 and 1945, or were evacuated in subsequent years. <strong>In August 1945</strong>, Breslau was officially transferred to Poland and renamed Wrocław. From that point on, the population became almost exclusively Polish. Those Germans who had called the city home for generations were scattered across western Germany, forever separated from their streets, their churches, and their memories.",
@@ -1091,7 +1100,7 @@ const translations = {
     ch4_willy_cap007: "Wife of Willÿ Walter Schneider. Studio portrait.",
     ch4_willy_cap009: "Willÿ Walter Schneider. Studio portrait.",
     ch4_willy_cap006: "Willÿ Walter Schneider and his wife.",
-    ch5_label:    "Chapter V",
+    ch5_label:    "Chapter IV",
     ch5_title:    "Emma and the Reunion",
     ch5_emma_name:  "Emma Anna Berta Langner · 1881",
     ch5_portrait_caption: "Emma's passport photograph, issued in Wiesbaden, 1949.",
@@ -1101,7 +1110,7 @@ const translations = {
     ch5_pull:     "Purpose of journey, as recorded in the official document: <em>to reunite with her son</em>.",
     ch5_p4:       "On <strong>August 2, 1949</strong>, Emma boarded the steamship <strong>Formosa</strong>, bound for Buenos Aires. On the Argentine immigration form, she listed her last address in Wiesbaden and entered the names of her two sons: Erich Paul Schneider, age 44; Willÿ Walter Schneider, age 44.",
     ch5_p5:       "It was a reunion born from the wreckage of the 20th century. Two world wars, a forced expulsion, and an ocean between them — and yet the family found each other again. Argentina had become, at last, home for all of them.",
-    ch5_p6:       "Just one year after her arrival, Emma passed away on <strong>October 31, 1950</strong>, at ten in the evening. She had crossed the Atlantic to be reunited with her son, and she died in Argentina, by his side. On <strong>March 29, 1975</strong>, <strong>Erich Paul Schneider</strong> also passed away, in Dean Funes, Córdoba. The story that had begun on the banks of the Oder came to its quiet close, thousands of kilometers from where it all began.",
+    ch5_p6:       "Just one year after her arrival, Emma passed away on <strong>October 31, 1950</strong>, at ten in the evening. She had crossed the Atlantic to be reunited with her son, and she died in Argentina, by his side.",
     ch5_caption_matrimonio: "Heiratsurkunde — Marriage certificate of Karl Wilhelm Schneider and Emma Anna Berta Langner. Großgraben, July 30, 1903.",
     ch5_caption_passport:   "Temporary travel document issued in Wiesbaden, June 29, 1949. Valid for Argentina only.",
     ch5_caption_inmig:      "Immigration record — Argentine Dirección de Inmigración. Consulate in Frankfurt am Main, July 29, 1949.",
@@ -1126,6 +1135,13 @@ const translations = {
     ch_thanks_grossgraben: "<em>Reserved to thank the family from Großgraben who accompanied Erica through the village, helped find the church, and made the visit to where it all began truly special.</em>",
     ch_tl_label:  "Timeline",
     ch_tl_title:  "A Life in Time",
+    ch_dean_label: "Chapter V",
+    ch_dean_title: "Dean Funes, Córdoba",
+    ch_dean_p1:    "In the early 1950s, a work opportunity brought Erich to the interior of the country. He moved to <strong>Dean Funes</strong>, a quiet city in the north of <strong>Córdoba</strong> province, where he found work as an <strong>electrician-mechanic</strong> at the city's <strong>power plant</strong>.",
+    ch_dean_p2:    "The work gradually rooted him in the daily life of the town. It was there that he met <strong>Juana Lucía Isabel Cáceres</strong>, whom he married and with whom he built a family. They had three daughters: <strong>Susana</strong>, <strong>Claudia</strong>, and <strong>Erica</strong>.",
+    ch_dean_p3:    "Erich Paul Schneider passed away on <strong>March 29, 1975</strong> in Dean Funes, in the city he had made his home.",
+    ch_dean_cap011: "Erich and Juana, toasting at their wedding celebration.",
+    ch_dean_cap012: "Family photograph at Erich and Juana's wedding.",
     ch6_label:    "Chapter VI",
     ch6_title:    "One Hundred Years Later",
     ch6_p1:       "In <strong>2026</strong>, exactly one hundred years after Erich had left the port of Bremen for Argentina, two of his descendants made the journey back. <strong>Erica Schneider</strong> — Erich's daughter — and her son <strong>Pablo</strong> returned to the lands of their ancestors: they set out from <strong>Córdoba</strong> and crossed the Atlantic in reverse, not fleeing anything, but searching for something. Searching for the traces of what remained.",
@@ -1151,9 +1167,9 @@ const translations = {
     header_dates: "15. September 1905 &nbsp;·&nbsp; Dean Funes, Córdoba, 1975",
     nav_origins:  "Herkunft",
     nav_journey:  "Die Reise",
-    nav_argentina:"Argentinien",
     nav_family:   "Familie in Deutschland",
     nav_reunion:  "Das Wiedersehen",
+    nav_dean:     "Dean Funes",
     nav_photos:   "Fotografien",
     quote_text:   "Die Wurzeln eines Menschen reichen tiefer als jede Grenze. Er trägt seine Heimat in seiner Sprache, seinem Glauben und in den Gesichtern derer, die er liebt.",
     quote_cite:   "— Im Gedenken an Erich Paul Schneider",
@@ -1180,12 +1196,7 @@ const translations = {
     ch2_cedula_cap000: "Cédula de Identidad der Argentinischen Republik, Buenos Aires. Das Dokument, das er bei der Ankunft erhielt.",
     ch2_cedula_cap001: "Innenseite des Ausweises: Personalien, Beruf als Mechaniker, geboren in Breslau, deutsche Staatsangehörigkeit. Foto von Erich.",
     ch2_cedula_cap002: "Stempel der Polizeibehörde Buenos Aires, Erichs Unterschrift und Fingerabdruck.",
-    ch3_label:    "Kapitel III",
-    ch3_title:    "Ein neues Leben in Argentinien",
-    ch3_p1:       "Erich kam <strong>1926</strong> in <strong>Buenos Aires</strong> an und lebte einige Jahre in der Hauptstadt, wo er unter den deutschen Einwanderern seinen Platz fand, die seine Sprache und seine Gewohnheiten teilten. Sein eigentliches Zuhause sollte er jedoch im Landesinneren finden: in <strong>Dean Funes</strong>, einer ruhigen Kleinstadt im Norden der Provinz <strong>Córdoba</strong>.",
-    ch3_p2:       "Dort arbeitete er als <strong>Elektriker und Mechaniker</strong> im städtischen <strong>Elektrizitätswerk</strong>. Die Arbeit verwurzelte ihn im Alltag von Dean Funes, und in dieser Stadt lernte er <strong>Juana Lucía Isabel Cáceres</strong> kennen, die er heiratete und mit der er eine Familie gründete. Sie hatten drei Töchter: <strong>Susana</strong>, <strong>Claudia</strong> und <strong>Erica</strong>.",
-    ch3_p3:       "Inzwischen verdunkelte sich in Deutschland die Lage erneut. Während Erich in den 1930er- und 1940er-Jahren in Dean Funes sein Leben aufbaute, beobachtete seine Familie in Breslau den Aufstieg einer neuen, schrecklichen Ordnung.",
-    ch4_label:    "Kapitel IV",
+    ch4_label:    "Kapitel III",
     ch4_title:    "Die zurückgebliebene Familie",
     ch4_p1:       "Während Erich in Buenos Aires sein neues Leben aufbaute, erlebte die Familie, die er in Breslau zurückgelassen hatte, eines der dunkelsten Kapitel der europäischen Geschichte. Der <strong>Zweite Weltkrieg</strong> — von 1939 bis 1945 — brachte Verwüstung über Deutschland und besonders über Schlesien.",
     ch4_p2:       "Die deutschen Einwohner Breslaus begannen zwischen 1944 und 1945 in Richtung Westen zu fliehen oder wurden in den Folgejahren evakuiert. <strong>Im August 1945</strong> wurde Breslau offiziell Polen zugesprochen und in Wrocław umbenannt. Von da an war die Bevölkerung fast ausschließlich polnisch. Die Deutschen, die die Stadt seit Generationen ihre Heimat genannt hatten, wurden über Westdeutschland verstreut — für immer getrennt von ihren Straßen, ihren Kirchen und ihren Erinnerungen.",
@@ -1198,7 +1209,7 @@ const translations = {
     ch4_willy_cap007: "Ehefrau von Willÿ Walter Schneider. Atelierporträt.",
     ch4_willy_cap009: "Willÿ Walter Schneider. Atelierporträt.",
     ch4_willy_cap006: "Willÿ Walter Schneider und seine Ehefrau.",
-    ch5_label:    "Kapitel V",
+    ch5_label:    "Kapitel IV",
     ch5_title:    "Emma und das Wiedersehen",
     ch5_emma_name:  "Emma Anna Berta Langner · 1881",
     ch5_portrait_caption: "Passfoto von Emma, ausgestellt in Wiesbaden, 1949.",
@@ -1208,7 +1219,7 @@ const translations = {
     ch5_pull:     "Reisezweck laut amtlichem Protokoll: <em>Wiedersehen mit dem Sohn</em>.",
     ch5_p4:       "Am <strong>2. August 1949</strong> bestieg Emma den Dampfer <strong>Formosa</strong> mit Ziel Buenos Aires. Im argentinischen Einreiseformular nannte sie ihre letzte Adresse in Wiesbaden und trug die Namen ihrer beiden Söhne ein: Erich Paul Schneider, 44 Jahre; Willÿ Walter Schneider, 44 Jahre.",
     ch5_p5:       "Es war ein Wiedersehen, das aus den Trümmern des 20. Jahrhunderts geboren wurde. Zwei Weltkriege, eine erzwungene Vertreibung und ein Ozean zwischen ihnen — und dennoch fand die Familie wieder zusammen. Argentinien war endlich für alle zur Heimat geworden.",
-    ch5_p6:       "Nur ein Jahr nach ihrer Ankunft verstarb Emma am <strong>31. Oktober 1950</strong> um zweiundzwanzig Uhr. Sie hatte den Atlantik überquert, um ihren Sohn wiederzusehen, und starb in Argentinien, an seiner Seite. Am <strong>29. März 1975</strong> verstarb auch <strong>Erich Paul Schneider</strong>, in Dean Funes, Córdoba. Die Geschichte, die an den Ufern der Oder begonnen hatte, fand ihren stillen Abschluss — Tausende von Kilometern entfernt von dem Ort, wo alles begann.",
+    ch5_p6:       "Nur ein Jahr nach ihrer Ankunft verstarb Emma am <strong>31. Oktober 1950</strong> um zweiundzwanzig Uhr. Sie hatte den Atlantik überquert, um ihren Sohn wiederzusehen, und starb in Argentinien, an seiner Seite.",
     ch5_caption_matrimonio: "Heiratsurkunde — Karl Wilhelm Schneider und Emma Anna Berta Langner. Großgraben, 30. Juli 1903.",
     ch5_caption_passport:   "Vorläufiger Reiseausweis, ausgestellt in Wiesbaden am 29. Juni 1949. Gültig ausschließlich für Argentinien.",
     ch5_caption_inmig:      "Einreiseprotokoll — Argentinische Einwanderungsbehörde. Konsulat Frankfurt am Main, 29. Juli 1949.",
@@ -1233,6 +1244,13 @@ const translations = {
     ch_thanks_grossgraben: "<em>Reserviert für den Dank an die Familie aus Großgraben, die Erica durch das Dorf begleitete, half die Kirche zu finden und den Besuch an dem Ort, wo alles begann, unvergesslich machte.</em>",
     ch_tl_label:  "Chronologie",
     ch_tl_title:  "Ein Leben in der Zeit",
+    ch_dean_label: "Kapitel V",
+    ch_dean_title: "Dean Funes, Córdoba",
+    ch_dean_p1:    "Anfang der 1950er-Jahre führte ihn eine berufliche Gelegenheit ins Landesinnere. Er zog nach <strong>Dean Funes</strong>, einer ruhigen Stadt im Norden der Provinz <strong>Córdoba</strong>, wo er als <strong>Elektriker und Mechaniker</strong> im städtischen <strong>Elektrizitätswerk</strong> Arbeit fand.",
+    ch_dean_p2:    "Die Arbeit verwurzelte ihn nach und nach im Alltag der Stadt. Dort lernte er <strong>Juana Lucía Isabel Cáceres</strong> kennen, die er heiratete und mit der er eine Familie gründete. Sie hatten drei Töchter: <strong>Susana</strong>, <strong>Claudia</strong> und <strong>Erica</strong>.",
+    ch_dean_p3:    "Erich Paul Schneider starb am <strong>29. März 1975</strong> in Dean Funes, in der Stadt, die er zu seiner Heimat gemacht hatte.",
+    ch_dean_cap011: "Erich und Juana beim Anstoßen auf ihrer Hochzeitsfeier.",
+    ch_dean_cap012: "Familienfoto bei der Hochzeit von Erich und Juana.",
     ch6_label:    "Kapitel VI",
     ch6_title:    "Hundert Jahre später",
     ch6_p1:       "Im Jahr <strong>2026</strong>, genau hundert Jahre nachdem Erich den Hafen von Bremen in Richtung Argentinien verlassen hatte, traten zwei seiner Nachkommen die Reise zurück an. <strong>Erica Schneider</strong> — Erichs Tochter — und ihr Sohn <strong>Pablo</strong> kehrten in die Länder ihrer Vorfahren zurück: Sie brachen von <strong>Córdoba</strong> auf und überquerten den Atlantik in umgekehrter Richtung — nicht auf der Flucht, sondern auf der Suche. Auf der Suche nach den Spuren dessen, was geblieben ist.",
@@ -1258,9 +1276,9 @@ const translations = {
     header_dates: "15 września 1905 &nbsp;·&nbsp; Dean Funes, Córdoba, 1975",
     nav_origins:  "Korzenie",
     nav_journey:  "Podróż",
-    nav_argentina:"Argentyna",
     nav_family:   "Rodzina w Niemczech",
     nav_reunion:  "Ponowne spotkanie",
+    nav_dean:     "Dean Funes",
     nav_photos:   "Fotografie",
     quote_text:   "Korzenie człowieka sięgają głębiej niż jakiekolwiek granice. Nosi w sobie ojczyznę — w języku, wierze i twarzach tych, których kocha.",
     quote_cite:   "— Ku pamięci Ericha Paula Schneidera",
@@ -1287,12 +1305,7 @@ const translations = {
     ch2_cedula_cap000: "Cédula de Identidad Republiki Argentyńskiej, Buenos Aires. Dokument otrzymany po przyjeździe.",
     ch2_cedula_cap001: "Wnętrze dowodu tożsamości: dane osobowe, zawód mechanika, urodzony we Wrocławiu, obywatelstwo niemieckie. Zdjęcie Ericha.",
     ch2_cedula_cap002: "Pieczęć Komendy Policji Buenos Aires, podpis Ericha Schneidera i odcisk palca.",
-    ch3_label:    "Rozdział III",
-    ch3_title:    "Nowe życie w Argentynie",
-    ch3_p1:       "Erich przybył do <strong>Buenos Aires</strong> w <strong>1926 roku</strong> i przez kilka lat mieszkał w stolicy, znajdując swoje miejsce w społeczności niemieckich emigrantów, którzy dzielili jego język i obyczaje. Prawdziwy dom odnalazł jednak w głębi kraju: w <strong>Dean Funes</strong>, małym, spokojnym mieście na północy prowincji <strong>Córdoba</strong>.",
-    ch3_p2:       "Tam osiedlił się jako <strong>elektromechanik</strong> w miejskiej <strong>elektrowni</strong>. Praca zakorzenila go w codziennym życiu Dean Funes i to właśnie w tym mieście poznał <strong>Juanę Lucíę Isabel Cáceres</strong>, którą poślubił i z którą założył rodzinę. Mieli trzy córki: <strong>Susanę</strong>, <strong>Claudię</strong> i <strong>Ericę</strong>.",
-    ch3_p3:       "Tymczasem w Niemczech świat znów się zaciemniał. Gdy Erich budował swoje życie w Dean Funes w latach trzydziestych i czterdziestych, jego rodzina we Wrocławiu obserwowała powstanie nowego, straszliwego porządku.",
-    ch4_label:    "Rozdział IV",
+    ch4_label:    "Rozdział III",
     ch4_title:    "Rodzina, która została",
     ch4_p1:       "Podczas gdy Erich budował nowe życie w Buenos Aires, rodzina, którą zostawił we Wrocławiu, przeżywała jeden z najciemniejszych rozdziałów europejskiej historii. <strong>II wojna światowa</strong> — od 1939 do 1945 roku — przyniosła zniszczenie Niemcom, a Śląskowi w szczególności.",
     ch4_p2:       "Niemieccy mieszkańcy Wrocławia zaczęli uciekać na zachód między 1944 a 1945 rokiem lub byli ewakuowani w kolejnych latach. <strong>W sierpniu 1945 roku</strong> Wrocław oficjalnie stał się częścią Polski. Od tej chwili ludność miasta stała się niemal wyłącznie polska. Niemcy, którzy od pokoleń nazywali to miasto swoim domem, zostali rozproszeni po Niemczech Zachodnich — na zawsze oddzieleni od swoich ulic, kościołów i wspomnień.",
@@ -1305,7 +1318,7 @@ const translations = {
     ch4_willy_cap007: "Żona Willÿ Waltera Schneidera. Portret studyjny.",
     ch4_willy_cap009: "Willÿ Walter Schneider. Portret studyjny.",
     ch4_willy_cap006: "Willÿ Walter Schneider i jego żona.",
-    ch5_label:    "Rozdział V",
+    ch5_label:    "Rozdział IV",
     ch5_title:    "Emma i ponowne spotkanie",
     ch5_emma_name:  "Emma Anna Berta Langner · 1881",
     ch5_portrait_caption: "Zdjęcie paszportowe Emmy, wystawione w Wiesbaden, 1949.",
@@ -1315,7 +1328,7 @@ const translations = {
     ch5_pull:     "Cel podróży według oficjalnego dokumentu: <em>spotkanie z synem</em>.",
     ch5_p4:       "<strong>2 sierpnia 1949 roku</strong> Emma weszła na pokład parowca <strong>Formosa</strong> z kursem na Buenos Aires. W argentyńskim formularzu imigracyjnym podała ostatni adres zamieszkania w Wiesbaden oraz wpisała imiona obydwu synów: Erich Paul Schneider, lat 44; Willÿ Walter Schneider, lat 44.",
     ch5_p5:       "Było to spotkanie zrodzone z gruzów XX wieku. Dwie wojny światowe, przymusowe wysiedlenie i ocean między nimi — a jednak rodzina znów się odnalazła. Argentyna stała się wreszcie domem dla wszystkich.",
-    ch5_p6:       "Zaledwie rok po przybyciu Emma zmarła <strong>31 października 1950 roku</strong>, o godzinie dwudziestej drugiej. Przepłynęła Atlantyk, by ponownie spotkać się z synem, i umarła w Argentynie, przy nim. <strong>29 marca 1975 roku</strong> zmarł również <strong>Erich Paul Schneider</strong>, w Dean Funes w prowincji Córdoba. Historia, która zaczęła się nad brzegami Odry, dobiegła cichego końca — tysiące kilometrów od miejsca, gdzie wszystko się zaczęło.",
+    ch5_p6:       "Zaledwie rok po przybyciu Emma zmarła <strong>31 października 1950 roku</strong>, o godzinie dwudziestej drugiej. Przepłynęła Atlantyk, by ponownie spotkać się z synem, i umarła w Argentynie, przy nim.",
     ch5_caption_matrimonio: "Heiratsurkunde — Akt ślubu Karla Wilhelma Schneidera i Emmy Anny Berty Langner. Großgraben, 30 lipca 1903.",
     ch5_caption_passport:   "Tymczasowy dokument podróży wystawiony w Wiesbaden, 29 czerwca 1949. Ważny wyłącznie dla Argentyny.",
     ch5_caption_inmig:      "Wpis imigracyjny — Argentyńska Dyrekcja ds. Imigracji. Konsulat we Frankfurcie nad Menem, 29 lipca 1949.",
@@ -1340,6 +1353,13 @@ const translations = {
     ch_thanks_grossgraben: "<em>Miejsce zarezerwowane dla podziękowania rodzinie z Großgraben, która towarzyszyła Erice podczas spaceru po wiosce, pomogła znaleźć kościół i uczyniła wizytę w miejscu, gdzie wszystko się zaczęło, niezapomnianym przeżyciem.</em>",
     ch_tl_label:  "Chronologia",
     ch_tl_title:  "Życie w czasie",
+    ch_dean_label: "Rozdział V",
+    ch_dean_title: "Dean Funes, Córdoba",
+    ch_dean_p1:    "Na początku lat pięćdziesiątych okazja zawodowa zaprowadziła Ericha w głąb kraju. Przeniósł się do <strong>Dean Funes</strong>, spokojnego miasta na północy prowincji <strong>Córdoba</strong>, gdzie znalazł pracę jako <strong>elektromechanik</strong> w miejskiej <strong>elektrowni</strong>.",
+    ch_dean_p2:    "Praca stopniowo zakorzenila go w codziennym życiu miasta. To właśnie tam poznał <strong>Juanę Lucíę Isabel Cáceres</strong>, którą poślubił i z którą założył rodzinę. Mieli trzy córki: <strong>Susanę</strong>, <strong>Claudię</strong> i <strong>Ericę</strong>.",
+    ch_dean_p3:    "Erich Paul Schneider zmarł <strong>29 marca 1975 roku</strong> w Dean Funes, w mieście, które uczynił swoim domem.",
+    ch_dean_cap011: "Erich i Juana wznoszą toast na weselu.",
+    ch_dean_cap012: "Zdjęcie rodzinne na weselu Ericha i Juany.",
     ch6_label:    "Rozdział VI",
     ch6_title:    "Sto lat później",
     ch6_p1:       "W <strong>2026 roku</strong>, dokładnie sto lat po tym, jak Erich opuścił port w Bremie, płynąc do Argentyny, dwoje jego potomków wyruszyło w drogę powrotną. <strong>Erica Schneider</strong> — córka Ericha — i jej syn <strong>Pablo</strong> wrócili na ziemie swoich przodków: wyruszyli z <strong>Córdoby</strong> i przepłynęli Atlantyk w odwrotnym kierunku — nie uciekając przed niczym, lecz szukając czegoś. Śladów tego, co pozostało.",
