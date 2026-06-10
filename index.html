@@ -623,7 +623,40 @@
     <p class="section-label" data-i18n="ch1_label"></p>
     <h2 data-i18n="ch1_title"></h2>
     <div class="divider"></div>
+
+    <!-- Parents intro -->
+    <p data-i18n="ch1_parents"></p>
+
+    <!-- Marriage certificate -->
+    <div class="doc-gallery">
+      <div class="doc-item">
+        <img src="images/matrimonio-000.jpg" alt="" loading="lazy"
+             onclick="openLightbox('images/matrimonio-000.jpg')">
+        <p class="doc-caption" data-i18n="ch1_matrimonio_caption"></p>
+      </div>
+      <div class="doc-item">
+        <img src="images/matrimonio-001.jpg" alt="" loading="lazy"
+             onclick="openLightbox('images/matrimonio-001.jpg')">
+      </div>
+    </div>
+
+    <!-- Birth of the twins -->
     <p data-i18n="ch1_p1"></p>
+
+    <!-- Family photo + house -->
+    <div class="doc-gallery">
+      <div class="doc-item">
+        <img src="images/photo-000.jpg" alt="" loading="lazy"
+             onclick="openLightbox('images/photo-000.jpg')">
+        <p class="doc-caption" data-i18n="ch1_family_caption"></p>
+      </div>
+      <div class="doc-item">
+        <img src="images/photo-002.jpg" alt="" loading="lazy"
+             onclick="openLightbox('images/photo-002.jpg')">
+        <p class="doc-caption" data-i18n="ch1_house_caption"></p>
+      </div>
+    </div>
+
     <p data-i18n="ch1_p2"></p>
     <div class="pull-quote"><p data-i18n="ch1_pull"></p></div>
     <p data-i18n="ch1_p3"></p>
@@ -692,20 +725,6 @@
     <h2 data-i18n="ch5_title"></h2>
     <div class="divider"></div>
 
-    <!-- Emma intro: portrait + bio -->
-    <div class="emma-intro">
-      <div class="emma-photo">
-        <img src="images/emma_passport-001.jpg" alt="Emma Anna Berta Langner" loading="lazy"
-             onclick="openLightbox('images/emma_passport-001.jpg')">
-        <p class="doc-caption" data-i18n="ch5_portrait_caption"></p>
-      </div>
-      <div class="emma-bio-text">
-        <h3 data-i18n="ch5_emma_name"></h3>
-        <p data-i18n="ch5_p1"></p>
-        <p data-i18n="ch5_p2"></p>
-      </div>
-    </div>
-
     <p data-i18n="ch5_p3"></p>
 
     <div class="pull-quote"><p data-i18n="ch5_pull"></p></div>
@@ -717,9 +736,9 @@
     <!-- Document gallery -->
     <div class="doc-gallery">
       <div class="doc-item">
-        <img src="images/matrimonio-000.jpg" alt="" loading="lazy"
-             onclick="openLightbox('images/matrimonio-000.jpg')">
-        <p class="doc-caption" data-i18n="ch5_caption_matrimonio"></p>
+        <img src="images/emma_passport-001.jpg" alt="Emma Anna Berta Langner" loading="lazy"
+             onclick="openLightbox('images/emma_passport-001.jpg')">
+        <p class="doc-caption" data-i18n="ch5_portrait_caption"></p>
       </div>
       <div class="doc-item">
         <img src="images/emma_passport-000.jpg" alt="" loading="lazy"
@@ -885,6 +904,10 @@ const translations = {
     quote_cite:   "— En memoria de Erich Paul Schneider",
     ch1_label:    "Capítulo I",
     ch1_title:    "Orígenes en Breslau",
+    ch1_parents:  "<strong>Paul Wilhelm Schneider</strong>, nacido el <strong>16 de abril de 1876</strong> en Nieder-Prietzen, Kreis Oels, Silesia, y <strong>Emma Anna Berta Langner</strong>, nacida el <strong>23 de febrero de 1881</strong> en el mismo pueblo, contrajeron matrimonio el <strong>30 de julio de 1903</strong> en Großgraben, ante el Standesamt. Era una boda sencilla en una comarca rural de Silesia, pero de esa unión nacería una historia que atravesaría dos guerras mundiales y dos continentes.",
+    ch1_matrimonio_caption: "Heiratsurkunde — Acta de matrimonio de Paul Wilhelm Schneider y Emma Anna Berta Langner. Standesamt Großgraben, 30 de julio de 1903.",
+    ch1_family_caption: "La familia Schneider en Breslau, h. 1907. Fotografía de estudio Emil Schroeder, Friedr. Wilhelmstr. 60/62. Emma, Erich, Paul Wilhelm y Willÿ.",
+    ch1_house_caption:  "La casa familiar en Breslau.",
     ch1_p1:       "<strong>Erich Paul Schneider</strong> y su hermano mellizo <strong>Willÿ Walter Schneider</strong> nacieron el <strong>15 de septiembre de 1905</strong> en la ciudad de <strong>Breslau</strong>, entonces orgullosa y próspera capital de la provincia prusiana de Silesia. Hoy la ciudad se llama Wrocław y se encuentra dentro de las fronteras de Polonia, pero en tiempos del nacimiento de los hermanos era una floreciente ciudad alemana, sede de grandes universidades, elegantes bulevares y una estrecha comunidad de familias germanas.",
     ch1_p2:       "Creció en un mundo que estaba a punto de derrumbarse. Cuando estalló la <strong>Primera Guerra Mundial</strong> en 1914, Erich tenía nueve años. Maduró viendo colapsar el viejo orden europeo: el imperio del Káiser desmoronándose, soldados regresando destrozados de las trincheras y la desesperación económica de una nación despojada de su dignidad por el Tratado de Versalles.",
     ch1_pull:     "Vio derrumbarse el viejo mundo y eligió encontrar su futuro en algún lugar nuevo.",
@@ -979,6 +1002,10 @@ const translations = {
     quote_cite:   "— In memory of Erich Paul Schneider",
     ch1_label:    "Chapter I",
     ch1_title:    "Origins in Breslau",
+    ch1_parents:  "<strong>Paul Wilhelm Schneider</strong>, born on <strong>April 16, 1876</strong> in Nieder-Prietzen, Kreis Oels, Silesia, and <strong>Emma Anna Berta Langner</strong>, born on <strong>February 23, 1881</strong> in the same village, were married on <strong>July 30, 1903</strong> in Großgraben, before the civil registry. It was a simple wedding in a rural district of Silesia — but from that union would come a story that would span two world wars and two continents.",
+    ch1_matrimonio_caption: "Heiratsurkunde — Marriage certificate of Paul Wilhelm Schneider and Emma Anna Berta Langner. Standesamt Großgraben, July 30, 1903.",
+    ch1_family_caption: "The Schneider family in Breslau, c. 1907. Studio photograph by Emil Schroeder, Friedr. Wilhelmstr. 60/62. Emma, Erich, Paul Wilhelm, and Willÿ.",
+    ch1_house_caption:  "The family home in Breslau.",
     ch1_p1:       "<strong>Erich Paul Schneider</strong> and his fraternal twin brother <strong>Willÿ Walter Schneider</strong> were born on <strong>September 15, 1905</strong> in the city of <strong>Breslau</strong>, then a proud and prosperous capital of the Prussian province of Silesia. Today the city is known as Wrocław and lies within the borders of Poland — but at the time of the brothers' birth, it was a thriving German city, home to grand universities, elegant boulevards, and a close-knit community of German families.",
     ch1_p2:       "He grew up in a world that was about to be shattered. When the <strong>First World War</strong> broke out in 1914, Erich was nine years old. He came of age watching the old European order collapse around him — the Kaiser's empire crumbling, soldiers returning broken from the trenches, and the economic despair of a nation stripped of its dignity by the Treaty of Versailles.",
     ch1_pull:     "He watched the old world crumble, and chose to find his future somewhere new.",
@@ -1073,6 +1100,10 @@ const translations = {
     quote_cite:   "— Im Gedenken an Erich Paul Schneider",
     ch1_label:    "Kapitel I",
     ch1_title:    "Herkunft aus Breslau",
+    ch1_parents:  "<strong>Paul Wilhelm Schneider</strong>, geboren am <strong>16. April 1876</strong> in Nieder-Prietzen, Kreis Oels, Schlesien, und <strong>Emma Anna Berta Langner</strong>, geboren am <strong>23. Februar 1881</strong> im selben Dorf, heirateten am <strong>30. Juli 1903</strong> in Großgraben vor dem Standesamt. Es war eine schlichte Hochzeit in einer ländlichen Ecke Schlesiens — doch aus dieser Verbindung sollte eine Geschichte erwachsen, die zwei Weltkriege und zwei Kontinente umspannte.",
+    ch1_matrimonio_caption: "Heiratsurkunde — Paul Wilhelm Schneider und Emma Anna Berta Langner. Standesamt Großgraben, 30. Juli 1903.",
+    ch1_family_caption: "Familie Schneider in Breslau, um 1907. Atelierfotografie von Emil Schroeder, Friedr. Wilhelmstr. 60/62. Emma, Erich, Paul Wilhelm und Willÿ.",
+    ch1_house_caption:  "Das Familienhaus in Breslau.",
     ch1_p1:       "<strong>Erich Paul Schneider</strong> und sein zweieiiger Zwillingsbruder <strong>Willÿ Walter Schneider</strong> wurden am <strong>15. September 1905</strong> in der Stadt <strong>Breslau</strong> geboren, damals stolze und prosperierende Hauptstadt der preußischen Provinz Schlesien. Heute heißt die Stadt Wrocław und liegt innerhalb der polnischen Grenzen — doch zur Zeit der Geburt der Brüder war sie eine blühende deutsche Stadt mit großen Universitäten, eleganten Boulevards und einer eng verbundenen deutschen Gemeinschaft.",
     ch1_p2:       "Er wuchs in einer Welt auf, die kurz vor dem Zerbrechen stand. Als der <strong>Erste Weltkrieg</strong> 1914 ausbrach, war Erich neun Jahre alt. Er wurde erwachsen, während er miterlebte, wie die alte europäische Ordnung um ihn herum zusammenbrach — das Kaiserreich zerfiel, Soldaten gebrochen aus den Schützengräben heimkehrten und wirtschaftliche Verzweiflung eine Nation ergriffen hatte, die durch den Versailler Vertrag ihrer Würde beraubt worden war.",
     ch1_pull:     "Er sah die alte Welt zerfallen und entschied sich, seine Zukunft anderswo zu suchen.",
@@ -1167,6 +1198,10 @@ const translations = {
     quote_cite:   "— Ku pamięci Ericha Paula Schneidera",
     ch1_label:    "Rozdział I",
     ch1_title:    "Korzenie we Wrocławiu",
+    ch1_parents:  "<strong>Paul Wilhelm Schneider</strong>, urodzony <strong>16 kwietnia 1876 roku</strong> w Nieder-Prietzen, pow. Oleśnica, Śląsk, i <strong>Emma Anna Berta Langner</strong>, urodzona <strong>23 lutego 1881 roku</strong> w tej samej miejscowości, zawarli związek małżeński <strong>30 lipca 1903 roku</strong> w Großgraben przed urzędem stanu cywilnego. Był to skromny ślub w wiejskim zakątku Śląska — ale z tego związku wyrosła historia, która miała objąć dwie wojny światowe i dwa kontynenty.",
+    ch1_matrimonio_caption: "Heiratsurkunde — Akt ślubu Paula Wilhelma Schneidera i Emmy Anny Berty Langner. Standesamt Großgraben, 30 lipca 1903.",
+    ch1_family_caption: "Rodzina Schneider we Wrocławiu, ok. 1907. Fotografia z atelier Emila Schroedera, Friedr. Wilhelmstr. 60/62. Emma, Erich, Paul Wilhelm i Willÿ.",
+    ch1_house_caption:  "Dom rodzinny we Wrocławiu.",
     ch1_p1:       "<strong>Erich Paul Schneider</strong> i jego brat bliźniak dwujajowy <strong>Willÿ Walter Schneider</strong> urodzili się <strong>15 września 1905 roku</strong> we <strong>Wrocławiu</strong> (Breslau) — dumnej i prężnie rozwijającej się stolicy pruskiej prowincji Śląsk. Dziś miasto leży w granicach Polski, jednak w czasach narodzin braci było kwitnącym niemieckim miastem, domem wielkich uczelni, eleganckich bulwarów i zżytej społeczności niemieckich rodzin.",
     ch1_p2:       "Dorastał w świecie, który miał się wkrótce rozsypać. Gdy w 1914 roku wybuchła <strong>I wojna światowa</strong>, Erich miał dziewięć lat. Dojrzewał, obserwując upadek starego europejskiego porządku — rozpad cesarstwa Kajzera, powrót żołnierzy złamanych okopami i ekonomiczną rozpacz narodu okradzionego z godności przez traktat wersalski.",
     ch1_pull:     "Widział, jak stary świat się wali, i postanowił szukać swojej przyszłości gdzie indziej.",
