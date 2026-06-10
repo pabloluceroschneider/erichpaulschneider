@@ -501,6 +501,20 @@
       margin-top: 2px;
     }
 
+    @media (max-width: 600px) {
+      .journey-map { padding: 24px 16px; }
+      .journey-path {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+      .journey-arrow {
+        display: block;
+        transform: rotate(90deg);
+        line-height: 1;
+      }
+    }
+
     /* ── Pull quote ── */
     .pull-quote {
       border-left: 4px solid var(--gold);
