@@ -2222,9 +2222,17 @@
         }
       }
 
-      // On load: read ?lang= param, fall back to 'es'
-      const urlLang = new URLSearchParams(window.location.search).get("lang");
-      setLang(urlLang || "es", false); // don't push to history on initial load
+      // On load: 1) browser language  2) ?lang= param  3) 'es'
+      (function () {
+        const supported = ["es", "en", "de", "pl"];
+        const browserLang = (navigator.language || "").slice(0, 2).toLowerCase();
+        const urlLang = new URLSearchParams(window.location.search).get("lang");
+        const lang =
+          (supported.includes(browserLang) ? browserLang : null) ||
+          (supported.includes(urlLang)     ? urlLang     : null) ||
+          "es";
+        setLang(lang, false);
+      })();
 
       function openLightbox(src) {
         document.getElementById("lightbox-img").src = src;
