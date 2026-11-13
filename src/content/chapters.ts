@@ -1,0 +1,61 @@
+// Exact original narrative sections, extracted for faithful preservation.
+// Historical copy can be edited independently of site layout and navigation.
+export const chapters = [
+  {
+    "id": "origins",
+    "slug": "origenes",
+    "titleKey": "ch1_title",
+    "period": "1903–1914",
+    "summaryKey": "ch1_p1",
+    "html": "<!-- Parents intro -->\n        <p data-i18n=\"ch1_parents\"></p>\n\n        <!-- Marriage certificate -->\n        <div class=\"doc-gallery\">\n          <div class=\"doc-item\">\n            <img\n              src=\"images/matrimonio-000.jpg\"\n              alt=\"\"\n              loading=\"lazy\"\n              onclick=\"openLightbox('images/matrimonio-000.jpg')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch1_matrimonio_caption\"></p>\n          </div>\n          <div class=\"doc-item\">\n            <img\n              src=\"images/matrimonio-001.jpg\"\n              alt=\"\"\n              loading=\"lazy\"\n              onclick=\"openLightbox('images/matrimonio-001.jpg')\"\n            />\n          </div>\n        </div>\n\n        <!-- Certificate details -->\n        <p data-i18n=\"ch1_grandparents\"></p>\n        <p data-i18n=\"ch1_grandparents2\"></p>\n        <p data-i18n=\"ch1_grandparents3\"></p>\n\n        <!-- Twins subtitle -->\n        <h3\n          data-i18n=\"ch1_twins_title\"\n          style=\"\n            font-family: var(--font-display);\n            color: var(--rust);\n            margin: 1.5rem 0 0.5rem;\n          \"\n        ></h3>\n\n        <!-- Birth of the twins -->\n        <p data-i18n=\"ch1_p1\"></p>\n\n        <!-- Family photo + house -->\n        <div class=\"doc-gallery\">\n          <div class=\"doc-item\">\n            <img\n              src=\"images/photo-000.jpg\"\n              alt=\"\"\n              loading=\"lazy\"\n              onclick=\"openLightbox('images/photo-000.jpg')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch1_family_caption\"></p>\n          </div>\n          <div class=\"doc-item\">\n            <img\n              src=\"images/photo-002.jpg\"\n              alt=\"\"\n              loading=\"lazy\"\n              onclick=\"openLightbox('images/photo-002.jpg')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch1_house_caption\"></p>\n          </div>\n        </div>\n\n        <p data-i18n=\"ch1_p2\"></p>\n        <div class=\"pull-quote\"><p data-i18n=\"ch1_pull\"></p></div>\n        <p data-i18n=\"ch1_p3\"></p>"
+  },
+  {
+    "id": "breslau-wwi",
+    "slug": "breslau-en-guerra",
+    "titleKey": "ch_breslau_title",
+    "period": "1914–1926",
+    "summaryKey": "ch_breslau_p1",
+    "html": "<p data-i18n=\"ch_breslau_p1\"></p>\n        <p data-i18n=\"ch_breslau_p2\"></p>\n        <p data-i18n=\"ch_breslau_p3\"></p>\n        <p data-i18n=\"ch_breslau_p4\"></p>\n        <p data-i18n=\"ch_breslau_p5\"></p>\n        <p data-i18n=\"ch_breslau_p6\"></p>"
+  },
+  {
+    "id": "journey",
+    "slug": "el-viaje",
+    "titleKey": "ch2_title",
+    "period": "1926",
+    "summaryKey": "ch2_p1",
+    "html": "<p data-i18n=\"ch2_p1\"></p>\n\n        <div class=\"doc-gallery\">\n          <div class=\"doc-item\">\n            <img\n              src=\"images/cedula-000.png\"\n              style=\"\n                border: none;\n                filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.3));\n                box-shadow: none;\n              \"\n              onclick=\"openLightbox('images/cedula-000.png')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch2_cedula_cap000\"></p>\n          </div>\n          <div class=\"doc-item\">\n            <img\n              src=\"images/cedula-001.png\"\n              style=\"\n                border: none;\n                filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.3));\n                box-shadow: none;\n              \"\n              onclick=\"openLightbox('images/cedula-001.png')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch2_cedula_cap001\"></p>\n          </div>\n          <div class=\"doc-item\">\n            <img\n              src=\"images/cedula-002.png\"\n              style=\"\n                border: none;\n                filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.3));\n                box-shadow: none;\n              \"\n              onclick=\"openLightbox('images/cedula-002.png')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch2_cedula_cap002\"></p>\n          </div>\n        </div>\n\n        <p data-i18n=\"ch2_p2\"></p>\n\n        <div class=\"journey-map\">\n          <div class=\"journey-path\">\n            <div>\n              <span class=\"journey-city\">Breslau</span>\n              <span class=\"journey-year\" data-i18n=\"map_born\"></span>\n            </div>\n            <span class=\"journey-arrow\">→</span>\n            <div>\n              <span class=\"journey-city\">Bremen</span>\n              <span class=\"journey-year\" data-i18n=\"map_depart\"></span>\n            </div>\n            <span class=\"journey-arrow\">→</span>\n            <div>\n              <span class=\"journey-city\" data-i18n=\"map_ocean\"></span>\n              <span class=\"journey-year\" data-i18n=\"map_weeks\"></span>\n            </div>\n            <span class=\"journey-arrow\">→</span>\n            <div>\n              <span class=\"journey-city\">Buenos Aires</span>\n              <span class=\"journey-year\" data-i18n=\"map_arrive\"></span>\n            </div>\n          </div>\n        </div>\n\n        <p style=\"margin-top: 28px\" data-i18n=\"ch2_p3\"></p>\n\n        <div class=\"doc-gallery\" style=\"justify-content: center;\">\n          <div class=\"doc-item\" style=\"max-width: 280px;\">\n            <img\n              src=\"images/photo-010.jpg\"\n              style=\"cursor: zoom-in\"\n              onclick=\"openLightbox('images/photo-010.jpg')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch2_cap010\"></p>\n          </div>\n        </div>"
+  },
+  {
+    "id": "family",
+    "slug": "la-familia-en-europa",
+    "titleKey": "ch4_title",
+    "period": "1939–1949",
+    "summaryKey": "ch4_p1",
+    "html": "<p data-i18n=\"ch4_p1\"></p>\n        <p data-i18n=\"ch4_wwii_p1\"></p>\n        <p data-i18n=\"ch4_wwii_p2\"></p>\n        <p data-i18n=\"ch4_wwii_p3\"></p>\n        <p data-i18n=\"ch4_wwii_p4\"></p>\n        <p data-i18n=\"ch4_wwii_p5\"></p>\n        <p data-i18n=\"ch4_p2\"></p>\n        <div class=\"pull-quote\"><p data-i18n=\"ch4_pull\"></p></div>\n        <p data-i18n=\"ch4_p3\"></p>\n        <p data-i18n=\"ch4_p4\"></p>\n\n        <div class=\"divider\"></div>\n        <h3\n          data-i18n=\"ch4_willy_title\"\n          style=\"\n            font-family: var(--font-display);\n            color: var(--rust);\n            margin: 1.5rem 0 0.5rem;\n          \"\n        ></h3>\n        <p data-i18n=\"ch4_willy_p1\"></p>\n        <div class=\"doc-gallery\">\n          <div class=\"doc-item\">\n            <img\n              src=\"images/photo-008.jpg\"\n              style=\"cursor: zoom-in\"\n              onclick=\"openLightbox('images/photo-008.jpg')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch4_willy_cap008\"></p>\n          </div>\n          <div class=\"doc-item\">\n            <img\n              src=\"images/photo-007.jpg\"\n              style=\"cursor: zoom-in\"\n              onclick=\"openLightbox('images/photo-007.jpg')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch4_willy_cap007\"></p>\n          </div>\n          <div class=\"doc-item\">\n            <img\n              src=\"images/photo-009.jpg\"\n              style=\"cursor: zoom-in\"\n              onclick=\"openLightbox('images/photo-009.jpg')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch4_willy_cap009\"></p>\n          </div>\n          <div class=\"doc-item\">\n            <img\n              src=\"images/photo-006.jpg\"\n              style=\"cursor: zoom-in\"\n              onclick=\"openLightbox('images/photo-006.jpg')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch4_willy_cap006\"></p>\n          </div>\n        </div>"
+  },
+  {
+    "id": "reunion",
+    "slug": "emma-y-el-reencuentro",
+    "titleKey": "ch5_title",
+    "period": "1949",
+    "summaryKey": "ch5_p3",
+    "html": "<p data-i18n=\"ch5_p3\"></p>\n\n        <div class=\"pull-quote\"><p data-i18n=\"ch5_pull\"></p></div>\n\n        <p data-i18n=\"ch5_p4\"></p>\n        <p data-i18n=\"ch5_p5\"></p>\n        <p data-i18n=\"ch5_p6\"></p>\n\n        <!-- Document gallery -->\n        <div class=\"doc-gallery\">\n          <div class=\"doc-item\">\n            <img\n              src=\"images/emma_passport-001.jpg\"\n              alt=\"Emma Anna Berta Langer\"\n              loading=\"lazy\"\n              onclick=\"openLightbox('images/emma_passport-001.jpg')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch5_portrait_caption\"></p>\n          </div>\n          <div class=\"doc-item\">\n            <img\n              src=\"images/emma_passport-000.jpg\"\n              alt=\"\"\n              loading=\"lazy\"\n              onclick=\"openLightbox('images/emma_passport-000.jpg')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch5_caption_passport\"></p>\n          </div>\n          <div class=\"doc-item\">\n            <img\n              src=\"images/emma_inmig-000.jpg\"\n              alt=\"\"\n              loading=\"lazy\"\n              onclick=\"openLightbox('images/emma_inmig-000.jpg')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch5_caption_inmig\"></p>\n          </div>\n        </div>"
+  },
+  {
+    "id": "dean-funes",
+    "slug": "una-vida-en-argentina",
+    "titleKey": "ch_dean_title",
+    "period": "1950–1975",
+    "summaryKey": "ch_dean_p1",
+    "html": "<p data-i18n=\"ch_dean_p1\"></p>\n        <div class=\"doc-gallery\">\n          <div class=\"doc-item\">\n            <img\n              src=\"images/photo-011.jpg\"\n              style=\"cursor: zoom-in\"\n              onclick=\"openLightbox('images/photo-011.jpg')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch_dean_cap011\"></p>\n          </div>\n          <div class=\"doc-item\">\n            <img\n              src=\"images/photo-012.jpg\"\n              style=\"cursor: zoom-in\"\n              onclick=\"openLightbox('images/photo-012.jpg')\"\n            />\n            <p class=\"doc-caption\" data-i18n=\"ch_dean_cap012\"></p>\n          </div>\n        </div>\n        <p data-i18n=\"ch_dean_p2\"></p>\n        <p data-i18n=\"ch_dean_p3\"></p>"
+  },
+  {
+    "id": "return",
+    "slug": "el-regreso",
+    "titleKey": "ch6_title",
+    "period": "2026",
+    "summaryKey": "ch6_p1",
+    "html": "<p data-i18n=\"ch6_p1\"></p>\n        <p data-i18n=\"ch6_p2\"></p>\n\n        <div class=\"pull-quote\">\n          <p data-i18n=\"ch6_pull\"></p>\n        </div>\n\n        <p data-i18n=\"ch6_p3\"></p>\n        <p data-i18n=\"ch6_p4\"></p>\n\n        <!-- Journey 2026 -->\n        <div class=\"journey-map\">\n          <div class=\"journey-path\">\n            <div>\n              <span class=\"journey-city\" data-i18n=\"ch6_city_start\"></span\n              ><span class=\"journey-year\" data-i18n=\"ch6_map_start\"></span>\n            </div>\n            <span class=\"journey-arrow\">→</span>\n            <div>\n              <span class=\"journey-city\">Wrocław</span\n              ><span class=\"journey-year\" data-i18n=\"ch6_map_wroclaw\"></span>\n            </div>\n            <span class=\"journey-arrow\">→</span>\n            <div>\n              <span class=\"journey-city\">Berlín</span\n              ><span class=\"journey-year\" data-i18n=\"ch6_map_berlin\"></span>\n            </div>\n            <span class=\"journey-arrow\">→</span>\n            <div>\n              <span class=\"journey-city\">Wiesbaden</span\n              ><span class=\"journey-year\" data-i18n=\"ch6_map_wiesbaden\"></span>\n            </div>\n          </div>\n        </div>\n\n        <p style=\"margin-top: 28px\" data-i18n=\"ch6_p5\"></p>"
+  }
+] as const;
+export type Chapter = (typeof chapters)[number];
