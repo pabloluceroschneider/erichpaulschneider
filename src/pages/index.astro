@@ -1,0 +1,28 @@
+---
+import { urlFor, base } from "../lib/routes";
+const fallback = urlFor("es");
+---
+<!doctype html>
+<html lang="es" data-base={base}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex,follow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href={new URL(fallback, Astro.site).toString()} />
+    <title>Erich Paul Schneider — Archivo familiar</title>
+  </head>
+  <body>
+    <p><a href={fallback}>Erich Paul Schneider — Explorar el archivo familiar</a></p>
+    <script is:inline>
+      (function () {
+        var supported = ["es", "en", "de", "pl"];
+        var params = new URLSearchParams(window.location.search);
+        var query = params.get("lang");
+        var browser = (navigator.language || "").slice(0, 2).toLowerCase();
+        var selected = supported.includes(query) ? query : supported.includes(browser) ? browser : "es";
+        var prefix = document.documentElement.dataset.base || "";
+        window.location.replace(prefix + "/" + selected + "/");
+      })();
+    </script>
+  </body>
+</html>

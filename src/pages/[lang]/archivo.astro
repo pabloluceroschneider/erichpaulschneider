@@ -1,0 +1,62 @@
+---
+import ArchiveLayout from "../../layouts/ArchiveLayout.astro";
+import { locales, isLocale, translate, type Locale } from "../../i18n";
+import { ui } from "../../i18n/ui";
+import { archive } from "../../content/archive";
+import { asset } from "../../lib/routes";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang;
+if (!isLocale(lang)) throw new Error("Unsupported language");
+const locale: Locale = lang;
+const u = ui(locale);
+---
+<ArchiveLayout locale={locale} title={u.archiveTitle} description={u.archiveIntro} currentPath="archivo">
+  <div class="container">
+    <header class="page-lead">
+      <p class="eyebrow">{u.archiveEyebrow}</p>
+      <h1>{u.archiveTitle}</h1>
+      <p>{u.archiveIntro}</p>
+    </header>
+    <div class="archive-tools" aria-label={u.archiveTitle}>
+      <button type="button" data-filter="all" aria-pressed="true">{u.all}</button>
+      <button type="button" data-filter="photograph" aria-pressed="false">{u.photographs}</button>
+      <button type="button" data-filter="document" aria-pressed="false">{u.documents}</button>
+    </div>
+    <div class="archive-grid">
+      {archive.map((item, index) => {
+        const caption = item.captionKey ? translate(locale, item.captionKey).replace(/<[^>]*>/g,"") : (item.title ?? (u.archivePhoto + " " + String(index + 1).padStart(2,"0")));
+        return (
+          <figure class="archive-item" data-kind={item.kind}>
+            <button class="archive-thumb" type="button" data-image-src={asset(item.file)} aria-label={u.openImage + ": " + caption}>
+              <img src={asset(item.file)} loading="lazy" alt={caption} />
+            </button>
+            <figcaption>
+              <span class="kind">{item.kind === "document" ? u.document : u.photograph}{item.date ? " · " + item.date : ""}</span>
+              <span class="caption">{caption}</span>
+            </figcaption>
+          </figure>
+        );
+      })}
+    </div>
+    <aside class="note">
+      <strong>{u.noteHeading}</strong>
+      <p>{u.noteBody}</p>
+    </aside>
+  </div>
+  <script>
+    const filters = document.querySelectorAll<HTMLButtonElement>("[data-filter]");
+    const items = document.querySelectorAll<HTMLElement>("[data-kind]");
+    filters.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selected = button.dataset.filter;
+        filters.forEach((candidate) => candidate.setAttribute("aria-pressed", String(candidate === button)));
+        items.forEach((item) => {
+          item.hidden = selected !== "all" && item.dataset.kind !== selected;
+        });
+      });
+    });
+  </script>
+</ArchiveLayout>

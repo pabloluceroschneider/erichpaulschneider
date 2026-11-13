@@ -1,0 +1,41 @@
+---
+import ArchiveLayout from "../../../layouts/ArchiveLayout.astro";
+import { locales, isLocale, translate, type Locale } from "../../../i18n";
+import { ui } from "../../../i18n/ui";
+import { chapters } from "../../../content/chapters";
+import { excerpt } from "../../../lib/content";
+import { urlFor } from "../../../lib/routes";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang;
+if (!isLocale(lang)) throw new Error("Unsupported language");
+const locale: Locale = lang;
+const u = ui(locale);
+---
+<ArchiveLayout locale={locale} title={u.storyTitle} description={u.storyIntro} currentPath="historia">
+  <div class="container">
+    <div class="page-lead">
+      <p class="eyebrow">{u.storyEyebrow}</p>
+      <h1>{u.storyTitle}</h1>
+      <p>{u.storyIntro}</p>
+    </div>
+    <div class="chapter-list">
+      {chapters.map((chapter, index) =>
+        <a class="chapter-link" href={urlFor(locale,"historia/" + chapter.slug)}>
+          <span class="chapter-number">{u.chapter} {String(index + 1).padStart(2, "0")}</span>
+          <div>
+            <h2>{translate(locale,chapter.titleKey)}</h2>
+            <p>{excerpt(locale,chapter.summaryKey,270)}</p>
+          </div>
+          <span class="period">{chapter.period} →</span>
+        </a>
+      )}
+    </div>
+    <aside class="note">
+      <strong>{u.noteHeading}</strong>
+      <p>{u.noteBody}</p>
+    </aside>
+  </div>
+</ArchiveLayout>

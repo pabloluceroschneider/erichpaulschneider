@@ -1,0 +1,51 @@
+---
+import ArchiveLayout from "../../../layouts/ArchiveLayout.astro";
+import { locales, isLocale, translate, type Locale } from "../../../i18n";
+import { ui } from "../../../i18n/ui";
+import { chapters } from "../../../content/chapters";
+import { excerpt, renderChapter } from "../../../lib/content";
+import { urlFor } from "../../../lib/routes";
+
+export function getStaticPaths() {
+  return locales.flatMap((lang) => chapters.map((chapter) => ({
+    params: { lang, slug: chapter.slug },
+    props: { chapter }
+  })));
+}
+const lang = Astro.params.lang;
+if (!isLocale(lang)) throw new Error("Unsupported language");
+const locale: Locale = lang;
+const { chapter } = Astro.props;
+const u = ui(locale);
+const index = chapters.findIndex((entry) => entry.slug === chapter.slug);
+const next = chapters[index + 1];
+const title = translate(locale, chapter.titleKey);
+---
+<ArchiveLayout locale={locale} title={title} description={excerpt(locale,chapter.summaryKey,200)} currentPath={"historia/" + chapter.slug}>
+  <div class="container">
+    <a class="back-link" href={urlFor(locale,"historia")}>← {u.backToStory}</a>
+    <header class="reading-header">
+      <p class="eyebrow">{u.chapter} {String(index + 1).padStart(2, "0")} / {chapter.period}</p>
+      <h1>{title}</h1>
+    </header>
+    <div class="reading-layout">
+      <article class="prose" set:html={renderChapter(chapter.html,locale)} />
+      <aside class="reading-aside" aria-label={u.story}>
+        <p>{u.story}</p>
+        {chapters.map((entry) =>
+          <a href={urlFor(locale,"historia/" + entry.slug)} aria-current={chapter.slug === entry.slug ? "page" : undefined}>
+            {translate(locale, entry.titleKey)}
+          </a>
+        )}
+      </aside>
+    </div>
+    {next && <div class="note">
+      <strong>{u.nextChapter}</strong>
+      <a class="text-link" href={urlFor(locale,"historia/" + next.slug)}>{translate(locale,next.titleKey)} →</a>
+    </div>}
+    <aside class="note">
+      <strong>{u.noteHeading}</strong>
+      <p>{u.noteBody}</p>
+    </aside>
+  </div>
+</ArchiveLayout>

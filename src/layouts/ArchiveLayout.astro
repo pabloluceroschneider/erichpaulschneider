@@ -1,0 +1,110 @@
+---
+import "../styles/global.css";
+import { type Locale, locales } from "../i18n";
+import { ui } from "../i18n/ui";
+import { asset, base, urlFor } from "../lib/routes";
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description?: string;
+  currentPath?: string;
+}
+const { locale, title, description, currentPath = "" } = Astro.props;
+const u = ui(locale);
+const active = currentPath.split("/")[0];
+const navigation = [
+  { segment: "", label: u.home },
+  { segment: "historia", label: u.story },
+  { segment: "cronologia", label: u.chronology },
+  { segment: "archivo", label: u.archive },
+  { segment: "familia", label: u.family }
+];
+const canonical = new URL(urlFor(locale, currentPath), Astro.site).toString();
+const socialImage = new URL(asset("Eric Paul Schneider.png"), Astro.site).toString();
+const metaDescription = description ?? u.heroIntro;
+---
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>{title} — Erich Paul Schneider</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="author" content="Pablo Daniel Schneider" />
+    <meta name="theme-color" content="#f8f6f0" />
+    <link rel="canonical" href={canonical} />
+    {locales.map((language) => <link rel="alternate" hreflang={language} href={new URL(urlFor(language, currentPath), Astro.site).toString()} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL(urlFor("es", currentPath), Astro.site).toString()} />
+    <link rel="icon" href={base + "/favicon.ico"} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title + " — Erich Paul Schneider"} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:locale" content={locale} />
+    <meta name="twitter:card" content="summary_large_image" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a class="wordmark" href={urlFor(locale)}>
+          <strong>Erich Paul Schneider</strong>
+          <span>{u.brand}</span>
+        </a>
+        <nav class="site-nav" aria-label={u.navigation}>
+          {navigation.map((item) =>
+            <a href={urlFor(locale, item.segment)} aria-current={active === item.segment ? "page" : undefined}>{item.label}</a>
+          )}
+        </nav>
+        <div class="language-switch" aria-label="Languages">
+          {locales.map((language) =>
+            <a href={urlFor(language, currentPath)} lang={language} aria-label={language.toUpperCase()} aria-current={language === locale ? "true" : undefined}>{language.toUpperCase()}</a>
+          )}
+        </div>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>Erich Paul Schneider</strong>
+          <small>{u.footerText}</small>
+        </div>
+        <a href={urlFor(locale,"archivo")}>{u.exploreArchive}</a>
+      </div>
+    </footer>
+    <dialog class="viewer" data-image-dialog aria-label={u.openImage}>
+      <form method="dialog">
+        <button type="submit" aria-label={u.closeImage}>{u.closeImage} ×</button>
+      </form>
+      <img data-dialog-image src="" alt={u.imageCaption} />
+    </dialog>
+    <script>
+      const viewer = document.querySelector<HTMLDialogElement>("[data-image-dialog]");
+      const viewerImage = viewer?.querySelector<HTMLImageElement>("[data-dialog-image]");
+      document.addEventListener("click", (event) => {
+        const clicked = event.target;
+        if (!(clicked instanceof Element)) return;
+        const trigger = clicked.closest<HTMLElement>("[data-image-src]");
+        if (!trigger || !viewer || !viewerImage) return;
+        const source = trigger.dataset.imageSrc;
+        if (!source) return;
+        viewerImage.src = source;
+        const itemImage = trigger.querySelector<HTMLImageElement>("img");
+        viewerImage.alt = itemImage?.alt || "";
+        viewer.showModal();
+      });
+      viewer?.addEventListener("click", (event) => {
+        if (event.target === viewer) viewer.close();
+      });
+      viewer?.addEventListener("close", () => {
+        if (viewerImage) viewerImage.removeAttribute("src");
+      });
+    </script>
+  </body>
+</html>
