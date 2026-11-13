@@ -1,4 +1,15 @@
-export const people = [
+export interface Person {
+  id: string;
+  name: string;
+  birth: string;
+  death?: string;
+  place: string;
+  photo: string;
+  biographyKey: string;
+  chapter: string;
+}
+
+export const people: Person[] = [
   {
     id: "erich-paul-schneider",
     name: "Erich Paul Schneider",
@@ -36,4 +47,4 @@ export const people = [
     biographyKey: "ch1_parents",
     chapter: "origenes"
   }
-] as const;
+];
