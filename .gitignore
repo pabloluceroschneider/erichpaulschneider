@@ -1,6 +1,7 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
 .DS_Store
-*.ppm
-images/doc-001.jpg
-images/doc-002.jpg
-images/portrait.jpg
-images/*.pdf
