@@ -1,0 +1,41 @@
+---
+import ArchiveLayout from "../../../layouts/ArchiveLayout.astro";
+import { locales, isLocale, type Locale } from "../../../i18n";
+import { ui } from "../../../i18n/ui";
+import { people } from "../../../content/people";
+import { excerpt } from "../../../lib/content";
+import { asset, urlFor } from "../../../lib/routes";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang;
+if (!isLocale(lang)) throw new Error("Unsupported language");
+const locale: Locale = lang;
+const u = ui(locale);
+---
+<ArchiveLayout locale={locale} title={u.familyTitle} description={u.familyIntro} currentPath="familia">
+  <div class="container">
+    <header class="page-lead">
+      <p class="eyebrow">{u.familyEyebrow}</p>
+      <h1>{u.familyTitle}</h1>
+      <p>{u.familyIntro}</p>
+    </header>
+    <div class="people-grid">
+      {people.map((person) =>
+        <a class="person-card" href={urlFor(locale,"familia/" + person.id)}>
+          <div class="portrait">
+            <img src={asset(person.photo)} alt={person.name} loading="lazy" />
+          </div>
+          <h2>{person.name}</h2>
+          <span class="period">{person.birth}{person.death ? " — " + person.death : ""}</span>
+          <p>{person.place}</p>
+        </a>
+      )}
+    </div>
+    <aside class="note">
+      <strong>{u.noteHeading}</strong>
+      <p>{u.noteBody}</p>
+    </aside>
+  </div>
+</ArchiveLayout>

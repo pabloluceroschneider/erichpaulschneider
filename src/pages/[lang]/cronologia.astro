@@ -1,0 +1,35 @@
+---
+import ArchiveLayout from "../../layouts/ArchiveLayout.astro";
+import { locales, isLocale, translate, type Locale } from "../../i18n";
+import { ui } from "../../i18n/ui";
+import { timeline } from "../../content/timeline";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang;
+if (!isLocale(lang)) throw new Error("Unsupported language");
+const locale: Locale = lang;
+const u = ui(locale);
+---
+<ArchiveLayout locale={locale} title={u.chronologyTitle} description={u.chronologyIntro} currentPath="cronologia">
+  <div class="container">
+    <header class="page-lead">
+      <p class="eyebrow">{u.chronologyEyebrow}</p>
+      <h1>{u.chronologyTitle}</h1>
+      <p>{u.chronologyIntro}</p>
+    </header>
+    <div class="timeline-list">
+      {timeline.map((event) =>
+        <div class="timeline-entry">
+          <time>{event.year}</time>
+          <p set:html={translate(locale,event.key)} />
+        </div>
+      )}
+    </div>
+    <aside class="note">
+      <strong>{u.noteHeading}</strong>
+      <p>{u.noteBody}</p>
+    </aside>
+  </div>
+</ArchiveLayout>

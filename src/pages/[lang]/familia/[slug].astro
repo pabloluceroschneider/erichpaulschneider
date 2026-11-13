@@ -1,0 +1,46 @@
+---
+import ArchiveLayout from "../../../layouts/ArchiveLayout.astro";
+import { locales, isLocale, translate, type Locale } from "../../../i18n";
+import { ui } from "../../../i18n/ui";
+import { people } from "../../../content/people";
+import { excerpt } from "../../../lib/content";
+import { asset, urlFor } from "../../../lib/routes";
+
+export function getStaticPaths() {
+  return locales.flatMap((lang) => people.map((person) => ({
+    params: { lang, slug: person.id },
+    props: { person }
+  })));
+}
+const lang = Astro.params.lang;
+if (!isLocale(lang)) throw new Error("Unsupported language");
+const locale: Locale = lang;
+const { person } = Astro.props;
+const u = ui(locale);
+---
+<ArchiveLayout locale={locale} title={person.name} description={excerpt(locale,person.biographyKey,200)} currentPath={"familia/" + person.id}>
+  <div class="container">
+    <a class="back-link" href={urlFor(locale,"familia")}>← {u.backToFamily}</a>
+    <article class="profile">
+      <div>
+        <p class="eyebrow">{u.familyEyebrow}</p>
+        <h1>{person.name}</h1>
+        <p class="period">{person.birth}{person.death ? " — " + person.death : ""} · {person.place}</p>
+        <div class="prose" style="margin-top:30px">
+          <p set:html={translate(locale,person.biographyKey)} />
+        </div>
+        <p style="margin-top:28px">
+          <a class="text-link" href={urlFor(locale,"historia/" + person.chapter)}>{u.relevantChapters} →</a>
+        </p>
+      </div>
+      <figure>
+        <img src={asset(person.photo)} alt={person.name} />
+        <figcaption>{u.provenance}</figcaption>
+      </figure>
+    </article>
+    <aside class="note">
+      <strong>{u.noteHeading}</strong>
+      <p>{u.noteBody}</p>
+    </aside>
+  </div>
+</ArchiveLayout>
