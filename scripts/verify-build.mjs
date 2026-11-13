@@ -28,7 +28,7 @@ for (const lang of languages) {
   }
   for (const slug of chapters) {
     const html = page(lang, "historia", slug);
-    assert.ok(html.includes("archive"), "Missing archive layout on " + lang + "/" + slug);
+    assert.ok(html.includes('class="prose"'), "Missing chapter body on " + lang + "/" + slug);
     assert.ok(!html.includes('data-i18n='), "Untranslated chapter placeholder: " + lang + "/" + slug);
     assert.ok(!html.includes('onclick="openLightbox'), "Old inline viewer event in " + lang + "/" + slug);
   }
