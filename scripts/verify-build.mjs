@@ -26,6 +26,17 @@ for (const lang of languages) {
     assert.ok(html.includes('<html lang="' + lang + '"'), "Incorrect language for " + lang + "/" + route);
     assert.ok(!html.includes('data-i18n='), "Untranslated placeholder in " + lang + "/" + route);
   }
+  const book = page(lang);
+  const anchors = ["origins","breslau-wwi","journey","family","reunion","dean-funes","return"];
+  assert.ok(book.includes('class="book-cover"'), "Missing cover for " + lang);
+  assert.ok(book.includes('id="contents"'), "Missing book index for " + lang);
+  for (const anchor of anchors) {
+    assert.ok(book.includes('id="' + anchor + '"'), "Missing continuous chapter " + anchor);
+    assert.ok(book.includes('href="#' + anchor + '"'), "Missing index link " + anchor);
+  }
+  assert.equal((book.match(/class="book-paper book-chapter"/g) || []).length, 7, "Expected seven continuous chapters");
+  assert.ok(book.includes('id="cronologia"') && book.includes('id="thanks"'), "Missing book appendices");
+  assert.ok(book.includes('data-image-src='), "Missing archival image viewer");
   for (const slug of chapters) {
     const html = page(lang, "historia", slug);
     assert.ok(html.includes('class="prose"'), "Missing chapter body on " + lang + "/" + slug);

@@ -33,7 +33,7 @@ const metaDescription = description ?? u.heroIntro;
     <title>{title} — Erich Paul Schneider</title>
     <meta name="description" content={metaDescription} />
     <meta name="author" content="Pablo Daniel Schneider" />
-    <meta name="theme-color" content="#f8f6f0" />
+    <meta name="theme-color" content="#2b1e0f" />
     <link rel="canonical" href={canonical} />
     {locales.map((language) => <link rel="alternate" hreflang={language} href={new URL(urlFor(language, currentPath), Astro.site).toString()} />)}
     <link rel="alternate" hreflang="x-default" href={new URL(urlFor("es", currentPath), Astro.site).toString()} />
@@ -56,7 +56,7 @@ const metaDescription = description ?? u.heroIntro;
         </a>
         <nav class="site-nav" aria-label={u.navigation}>
           {navigation.map((item) =>
-            <a href={urlFor(locale, item.segment)} aria-current={active === item.segment ? "page" : undefined}>{item.label}</a>
+            <a href={item.segment === "historia" ? urlFor(locale) + "#contents" : item.segment === "cronologia" ? urlFor(locale) + "#cronologia" : urlFor(locale, item.segment)} aria-current={active === item.segment ? "page" : undefined}>{item.label}</a>
           )}
         </nav>
         <div class="language-switch" aria-label="Languages">
